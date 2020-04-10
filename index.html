@@ -170,7 +170,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-04-10 21:29:41 / 修改时间：21:31:48" itemprop="dateCreated datePublished" datetime="2020-04-10T21:29:41+08:00">2020-04-10</time>
+              <time title="创建时间：2020-04-10 21:29:41 / 修改时间：21:48:54" itemprop="dateCreated datePublished" datetime="2020-04-10T21:29:41+08:00">2020-04-10</time>
             </span>
 
           
@@ -214,9 +214,9 @@
 
 <p>然后在主目录的配置文件<code>_config.yml</code>中(这里称之为站点配置文件，后面还有一个同名的主题配置文件)，找到deploy部分，并更改如下，注意repo部分根据个人github用户名而定。</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://github.com/JohnJim0816/JohnJim0816.github.io</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="安装next主题来装点博客"><a href="#安装next主题来装点博客" class="headerlink" title="安装next主题来装点博客"></a>安装next主题来装点博客</h2><p>配置完成之后，使用<code>hexo n 博客题目</code> 新建，<code>hexo g</code>生成，然后<code>hexo d</code>发布，也可以<code>hexo g -d</code>将两步合为一步。然后需要等待一段时间，就可以在```<a href="https://johnjim0816.github.io/``看到自己的博客了。" target="_blank" rel="noopener">https://johnjim0816.github.io/``看到自己的博客了。</a></p>
-<p>hexo自带的主题是landscape，对应带主目录<code>themes</code>文件夹下，这个主题只能说是平平无奇！！！<br>因此需要安装一个靓靓的主题来使我们的博客秀色可餐，这里推荐<a href="https://github.com/theme-next/hexo-theme-next" target="_blank" rel="noopener">next主题</a>，截止2020年4月10日该主题已经更新到了v7.8.0，可以直接下载整个仓库并在本地解压，将名字改为next，然后放到主目录下的<code>themes</code>文件夹下。</p>
+<p>配置完成之后，使用<code>hexo n 博客题目</code> 新建，<code>hexo g</code>生成，然后<code>hexo d</code>发布，也可以<code>hexo g -d</code>将两步合为一步。然后需要等待一段时间，就可以在<code>https://johnjim0816.github.io/</code>看到自己的博客了。</p>
+<p><img src="./1.png" alt=""></p>
+<h2 id="安装next主题来装点博客"><a href="#安装next主题来装点博客" class="headerlink" title="安装next主题来装点博客"></a>安装next主题来装点博客</h2><p>hexo自带的主题是landscape，对应带主目录<code>themes</code>文件夹下，这个主题只能说是平平无奇！！！<br>因此需要安装一个靓靓的主题来使我们的博客秀色可餐，这里推荐<a href="https://github.com/theme-next/hexo-theme-next" target="_blank" rel="noopener">next主题</a>，截止2020年4月10日该主题已经更新到了v7.8.0，可以直接下载整个仓库并在本地解压，将名字改为next，然后放到主目录下的<code>themes</code>文件夹下。</p>
 <p>在站点配置文件即<code>hexo-blogs/_config.yml</code>中将语言更改为中文，如下，注意冒号之后有一个空格</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">language: zh-CN</span><br></pre></td></tr></table></figure>
 
@@ -224,7 +224,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure>
 
 <p>保存之后使用hexo g -d可以看到初步效果，不过在类似于这些测试的操作还是建议在本地服务器上进行，github page刷新的速度简直就是谜一样的存在。</p>
-
+<h3 id="更多配置"><a href="#更多配置" class="headerlink" title="更多配置"></a>更多配置</h3>
       
     </div>
 
