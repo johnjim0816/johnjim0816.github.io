@@ -23,14 +23,15 @@
     var CONFIG = {"hostname":"johnjim0816.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="description" content="从零开始搭建个人博客主要参考以下链接 官方文档，知乎，b站视频 安装依赖包node.jsHexo是一款基于Node.js的静态博客框架， 所谓巧妇难为无米之炊，要想搭建上层的博客必须先安装底层的node.js，可以直接上node.js官网下载安装，该安装包除了node.js之外还包括node软件包管理工具npm。 后面我们需要用npm来安装hexo相关模块，而在国内首先需要像pip那样更换镜像，如">
+  <meta name="description" content="从零开始搭建个人博客安装依赖包node.jsHexo是一款基于Node.js的静态博客框架， 所谓巧妇难为无米之炊，要想搭建上层的博客必须先安装底层的node.js，可以直接上node.js官网下载安装，该安装包除了node.js之外还包括node软件包管理工具npm。 后面我们需要用npm来安装hexo相关模块，而在国内首先需要像pip那样更换镜像，如下更换为淘宝镜像： 1npm config">
 <meta property="og:type" content="article">
 <meta property="og:title" content="我的Hexo-Github博客搭建笔记">
 <meta property="og:url" content="https://johnjim0816.github.io/2020/04/10/%E6%88%91%E7%9A%84Hexo-Github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="小学生的博客">
-<meta property="og:description" content="从零开始搭建个人博客主要参考以下链接 官方文档，知乎，b站视频 安装依赖包node.jsHexo是一款基于Node.js的静态博客框架， 所谓巧妇难为无米之炊，要想搭建上层的博客必须先安装底层的node.js，可以直接上node.js官网下载安装，该安装包除了node.js之外还包括node软件包管理工具npm。 后面我们需要用npm来安装hexo相关模块，而在国内首先需要像pip那样更换镜像，如">
+<meta property="og:description" content="从零开始搭建个人博客安装依赖包node.jsHexo是一款基于Node.js的静态博客框架， 所谓巧妇难为无米之炊，要想搭建上层的博客必须先安装底层的node.js，可以直接上node.js官网下载安装，该安装包除了node.js之外还包括node软件包管理工具npm。 后面我们需要用npm来安装hexo相关模块，而在国内首先需要像pip那样更换镜像，如下更换为淘宝镜像： 1npm config">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/JohnJim0816/blog-figures/master/2020/04/%E6%88%91%E7%9A%84Hexo-Github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%AC%94%E8%AE%B0/1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/JohnJim0816/blog-figures/master/2020/04/%E6%88%91%E7%9A%84Hexo-Github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%AC%94%E8%AE%B0/8.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/JohnJim0816/blog-figures/master/2020/04/%E6%88%91%E7%9A%84Hexo-Github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%AC%94%E8%AE%B0/2.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/JohnJim0816/blog-figures/master/2020/04/%E6%88%91%E7%9A%84Hexo-Github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%AC%94%E8%AE%B0/3.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/JohnJim0816/blog-figures/master/2020/04/%E6%88%91%E7%9A%84Hexo-Github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%AC%94%E8%AE%B0/4.png">
@@ -38,7 +39,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/JohnJim0816/blog-figures/master/2020/04/%E6%88%91%E7%9A%84Hexo-Github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%AC%94%E8%AE%B0/6.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/JohnJim0816/blog-figures/master/2020/04/%E6%88%91%E7%9A%84Hexo-Github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%AC%94%E8%AE%B0/7.png">
 <meta property="article:published_time" content="2020-04-10T13:29:41.000Z">
-<meta property="article:modified_time" content="2020-04-11T11:07:44.448Z">
+<meta property="article:modified_time" content="2020-04-12T02:35:40.173Z">
 <meta property="article:author" content="John Jim">
 <meta property="article:tag" content="hexo">
 <meta property="article:tag" content="笔记">
@@ -248,7 +249,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-11 19:07:44" itemprop="dateModified" datetime="2020-04-11T19:07:44+08:00">2020-04-11</time>
+                <time title="修改时间：2020-04-12 10:35:40" itemprop="dateModified" datetime="2020-04-12T10:35:40+08:00">2020-04-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -287,14 +288,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>4.5k</span>
+              <span>5.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>8 分钟</span>
+              <span>9 分钟</span>
             </span>
 
         </div>
@@ -306,9 +307,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="从零开始搭建个人博客"><a href="#从零开始搭建个人博客" class="headerlink" title="从零开始搭建个人博客"></a>从零开始搭建个人博客</h2><p>主要参考以下链接</p>
-<p><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">官方文档</a>，<a href="https://zhuanlan.zhihu.com/p/26625249" target="_blank" rel="noopener">知乎</a>，<a href="https://www.bilibili.com/video/BV1Yb411a7ty" target="_blank" rel="noopener">b站视频</a></p>
-<h3 id="安装依赖包node-js"><a href="#安装依赖包node-js" class="headerlink" title="安装依赖包node.js"></a>安装依赖包node.js</h3><p>Hexo是一款基于<strong>Node.js</strong>的静态博客框架， 所谓巧妇难为无米之炊，要想搭建上层的博客必须先安装底层的node.js，可以直接上<a href="https://nodejs.org/en/" target="_blank" rel="noopener">node.js官网</a>下载安装，该安装包除了node.js之外还包括node软件包管理工具<strong>npm</strong>。</p>
+        <h2 id="从零开始搭建个人博客"><a href="#从零开始搭建个人博客" class="headerlink" title="从零开始搭建个人博客"></a>从零开始搭建个人博客</h2><h3 id="安装依赖包node-js"><a href="#安装依赖包node-js" class="headerlink" title="安装依赖包node.js"></a>安装依赖包node.js</h3><p>Hexo是一款基于<strong>Node.js</strong>的静态博客框架， 所谓巧妇难为无米之炊，要想搭建上层的博客必须先安装底层的node.js，可以直接上<a href="https://nodejs.org/en/" target="_blank" rel="noopener">node.js官网</a>下载安装，该安装包除了node.js之外还包括node软件包管理工具<strong>npm</strong>。</p>
 <p>后面我们需要用npm来安装hexo相关模块，而在国内首先需要像pip那样更换镜像，如下更换为淘宝镜像：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
@@ -339,16 +338,31 @@
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://github.com/JohnJim0816/JohnJim0816.github.io</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
 <p>配置完成之后，使用<code>hexo n test</code> 新建一个博客。<br>然后<code>hexo g</code>生成，然后<code>hexo d</code>发布，也可以<code>hexo g -d</code>将两步合为一步。然后需要等待一段时间，就可以在<code>https://johnjim0816.github.io/</code>看到自己的博客了。</p>
 <p><img src="https://raw.githubusercontent.com/JohnJim0816/blog-figures/master/2020/04/%E6%88%91%E7%9A%84Hexo-Github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%AC%94%E8%AE%B0/1.png" alt="image1"></p>
-<h2 id="安装next主题来装点博客"><a href="#安装next主题来装点博客" class="headerlink" title="安装next主题来装点博客"></a>安装next主题来装点博客</h2><p>hexo自带的主题是landscape，对应带主目录<code>themes</code>文件夹下，这个主题只能说是平平无奇！！！</p>
-<p>因此需要安装一个靓靓的主题来使我们的博客秀色可餐，这里推荐<a href="https://github.com/theme-next/hexo-theme-next" target="_blank" rel="noopener">next主题</a>，截止2020年4月10日该主题已经更新到了v7.8.0。注意还有一个<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">iissnan/hexo-theme-next</a>，这个虽然star很多但是已经不维护了，所以推荐前面一个。可以直接下载整个仓库并在本地解压，将名字改为next，然后放到主目录下的<code>themes</code>文件夹下。</p>
+<h3 id="安装next主题来装点博客"><a href="#安装next主题来装点博客" class="headerlink" title="安装next主题来装点博客"></a>安装next主题来装点博客</h3><p>hexo自带的主题是landscape，对应带主目录<code>themes</code>文件夹下，这个主题只能说是平平无奇！！！</p>
+<p>因此需要安装一个靓靓的主题来使我们的博客秀色可餐，这里推荐github上star较多的<a href="https://github.com/theme-next/hexo-theme-next" target="_blank" rel="noopener">next主题</a>。</p>
+<blockquote>
+<p>截止2020年4月10日该主题已经更新到了v7.8.0。注意还有一个<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">iissnan/hexo-theme-next</a>，这个虽然star很多，并且网上的很多教程是跟这个主题关联的，但是已经不维护了，所以还是推荐前面一个。</p>
+</blockquote>
+<p>可以直接下载整个仓库并在本地解压，将名字改为next，然后放到博客根目录下的<code>themes</code>文件夹下。</p>
 <p>在站点配置文件即<code>blogs/_config.yml</code>中将语言更改为中文，如下，注意冒号之后有一个空格</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">language: zh-CN</span><br></pre></td></tr></table></figure>
 
 <p>并且将主题改为next：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure>
-
-<p>保存之后使用hexo g -d可以看到初步效果，不过在类似于这些测试的操作还是建议在本地服务器上进行，github page刷新的速度简直就是谜一样的存在。</p>
-<h2 id="后续优化"><a href="#后续优化" class="headerlink" title="后续优化"></a>后续优化</h2><h3 id="给本地文章md文件按年月分类"><a href="#给本地文章md文件按年月分类" class="headerlink" title="给本地文章md文件按年月分类"></a>给本地文章md文件按年月分类</h3><p>现在<code>hexo n 文章名</code>会在<code>source/_posts/</code>下创建文件，但是如果文章太多的话放在同一个目录下不好管理，此时可以更改站点配置文件<code>blogs/_config.yml</code>中的<code>new_post_name</code>，如下</p>
+<p>保存之后使用hexo g -d可以看到初步效果，不过github pages刷新较慢，因此测试优化博客网页时建议在本地服务上进行。</p>
+<h2 id="后续优化"><a href="#后续优化" class="headerlink" title="后续优化"></a>后续优化</h2><h3 id="首先阅读Hexo官方文档"><a href="#首先阅读Hexo官方文档" class="headerlink" title="首先阅读Hexo官方文档"></a>首先阅读<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">Hexo官方文档</a></h3><p>官方文档虽然有时候难啃，但是给出的方法总是最新最不容易走坑的。个人认为官方文档中的以下几点有必要关注一下：</p>
+<ul>
+<li>配置：即通过对上文所说的博客根目录下的站点配置文件<code>_config.yml</code>来修改大部分配置，包括网站标题等等，注意每次修改该配置文件后需要<code>hexo clean</code>之后才能通过<code>hexo g</code>生效。</li>
+<li>写作：关注<code>scaffolds</code>文件夹下的模版文件，如新文章的模版文件<code>post.md</code></li>
+<li>Front-matter：即文章开头的一些变量，常见包括文章名，日期等，可以自己添加categories以及tags方便管理</li>
+</ul>
+<h3 id="然后再看next主题官方文档"><a href="#然后再看next主题官方文档" class="headerlink" title="然后再看next主题官方文档"></a>然后再看<a href="https://theme-next.org/docs/" target="_blank" rel="noopener">next主题官方文档</a></h3><p>next官方文档将配置分类<a href="https://theme-next.org/docs/getting-started/" target="_blank" rel="noopener">入门</a>、<a href="https://theme-next.org/docs/theme-settings/" target="_blank" rel="noopener">主题设定</a>、<a href="https://theme-next.org/docs/third-party-services/" target="_blank" rel="noopener">第三方服务</a>、<a href="https://theme-next.org/docs/tag-plugins/" target="_blank" rel="noopener">标签插件</a>和<a href="https://theme-next.org/docs/advanced-settings" target="_blank" rel="noopener">高级设置</a>等几个大类，每个大类又分为几个小类，如下：</p>
+<p><img src="https://raw.githubusercontent.com/JohnJim0816/blog-figures/master/2020/04/%E6%88%91%E7%9A%84Hexo-Github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%AC%94%E8%AE%B0/8.png" alt=""></p>
+<h4 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h4><p>包括next主题安装与基本配置，next的配置文件即主题配置文件在<code>next/_config.yml</code>处。</p>
+<h4 id="主题设定"><a href="#主题设定" class="headerlink" title="主题设定"></a>主题设定</h4><p>主要包括文字对齐、代码块样式、阅读进度和字体定制等。<br>其中还有页脚与侧边栏的设置，在<a href="https://theme-next.org/docs/theme-settings/posts" target="_blank" rel="noopener">帖子</a>下还有字数统计选项，也包括如何<a href="https://theme-next.org/docs/theme-settings/custom-pages" target="_blank" rel="noopener">自定义界面</a>以及<a href="https://theme-next.org/docs/theme-settings/seo" target="_blank" rel="noopener">SEO</a>。</p>
+<h4 id="第三方服务"><a href="#第三方服务" class="headerlink" title="第三方服务"></a>第三方服务</h4><p>第三方包括数学公式的支持，评论系统，以及统计与分析，其中评论系统不建议采取官方文档所推荐的那些，而是使用valine系统，详情见下文。而统计与分析一个很常见的功能就是统计访问量，而valine最新版本已经支持基于leancloud的计数了，同样见下文的valine评论系统。</p>
+<p>至于标签插件和高级设置则看个人喜好了，下面的内容将对官方文档的说明做一个补充，并且持续更新～～。</p>
+<h3 id="给本地文章md文件按年月分类"><a href="#给本地文章md文件按年月分类" class="headerlink" title="给本地文章md文件按年月分类"></a>给本地文章md文件按年月分类</h3><p>现在<code>hexo n 文章名</code>会在<code>source/_posts/</code>下创建文件，但是如果文章太多的话放在同一个目录下不好管理，此时可以更改站点配置文件<code>blogs/_config.yml</code>中的<code>new_post_name</code>，如下</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">new_post_name:</span> <span class="string">:year/:month/:title.md</span></span><br></pre></td></tr></table></figure>
 <p>这样<code>hexo n 文章名</code>之后会在<code>source/_posts/</code>创建比如2020/04/文章名.md文件，即按年月分类。</p>
 <h3 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h3><p>插入图片这个搞了我好久，首先强烈建议使用图床，常见的可以搜索Github+PigGo。然后文章中直接按如下格式即可。</p>
@@ -373,7 +387,6 @@
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="attr">home:</span> <span class="string">/</span> <span class="string">||</span> <span class="string">home</span></span><br><span class="line">  <span class="attr">categories:</span> <span class="string">/categories/</span> <span class="string">||</span> <span class="string">th</span></span><br><span class="line">  <span class="attr">tags:</span> <span class="string">/tags/</span> <span class="string">||</span> <span class="string">tags</span></span><br><span class="line">  <span class="attr">archives:</span> <span class="string">/archives/</span> <span class="string">||</span> <span class="string">archive</span></span><br></pre></td></tr></table></figure>
 <p>其中<code>||</code>后面指向图标的链接，如果没有则图标默认是问号。</p>
 <p>由此可以类推新建一个类似于标签、分类这样的菜单栏，可参考<a href="https://hoxis.github.io/Hexo+Next%20%E6%96%B0%E5%A2%9E%E8%8F%9C%E5%8D%95%E5%88%86%E7%B1%BB%E9%A1%B5%E9%9D%A2.html" target="_blank" rel="noopener">这个博客</a></p>
-<h3 id="增加百度统计"><a href="#增加百度统计" class="headerlink" title="增加百度统计"></a>增加百度统计</h3><p>可参考<a href="http://theme-next.iissnan.com/getting-started.html#theme-settings" target="_blank" rel="noopener">官方文档</a></p>
 <h3 id="如何开启阅读全文"><a href="#如何开启阅读全文" class="headerlink" title="如何开启阅读全文"></a>如何开启阅读全文</h3><p>在文章中加入<code>&lt;!-- more --&gt;</code>即可，参考<a href="https://theme-next.org/docs/theme-settings/posts" target="_blank" rel="noopener">官方文档</a></p>
 <h3 id="增加阅读时间和字数统计"><a href="#增加阅读时间和字数统计" class="headerlink" title="增加阅读时间和字数统计"></a>增加阅读时间和字数统计</h3><p>首先安装hexo-symbols-count-time，</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i hexo-symbols-count-time --save</span><br></pre></td></tr></table></figure>
@@ -454,6 +467,9 @@
 <h4 id="完善评论通知"><a href="#完善评论通知" class="headerlink" title="完善评论通知"></a>完善评论通知</h4><p><strong>Valine</strong> 评论邮件提醒功能不太健全，通知邮件中没有文章直达链接，<strong>Valine</strong> 官网中提供了评论系统第三方功能扩展<a href="https://github.com/zhaojun1998/Valine-Admin" target="_blank" rel="noopener">Valine</a>链接，按照链接中的说明，非常详细的步骤，一步步很容易实现完备的评论系统后台管理以及邮件提醒功能，部分高级配置<a href="https://github.com/zhaojun1998/Valine-Admin/blob/master/高级配置.md#自定义邮件服务器" target="_blank" rel="noopener">点我</a>了解。</p>
 <h4 id="删除评论"><a href="#删除评论" class="headerlink" title="删除评论"></a>删除评论</h4><p>直接在leancloud后台的存储中找到之前创建的<code>Comment</code>这个<code>class</code>找到对应评论删除即可。</p>
 <p><img src="https://raw.githubusercontent.com/JohnJim0816/blog-figures/master/2020/04/%E6%88%91%E7%9A%84Hexo-Github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%AC%94%E8%AE%B0/7.png" alt="image7"></p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">Hexo官方文档</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/26625249" target="_blank" rel="noopener">知乎 - GitHub+Hexo 搭建个人网站详细教程</a></p>
+<p><a href="https://www.bilibili.com/video/BV1Yb411a7ty" target="_blank" rel="noopener">b站 - 手把手教你从0开始搭建自己的个人博客</a></p>
 
     </div>
 
@@ -554,7 +570,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#从零开始搭建个人博客"><span class="nav-number">1.</span> <span class="nav-text">从零开始搭建个人博客</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装依赖包node-js"><span class="nav-number">1.1.</span> <span class="nav-text">安装依赖包node.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装hexo"><span class="nav-number">1.2.</span> <span class="nav-text">安装hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#利用本地服务器生成网页"><span class="nav-number">1.3.</span> <span class="nav-text">利用本地服务器生成网页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署到Github-Pages"><span class="nav-number">1.4.</span> <span class="nav-text">部署到Github Pages</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装next主题来装点博客"><span class="nav-number">2.</span> <span class="nav-text">安装next主题来装点博客</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后续优化"><span class="nav-number">3.</span> <span class="nav-text">后续优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#给本地文章md文件按年月分类"><span class="nav-number">3.1.</span> <span class="nav-text">给本地文章md文件按年月分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入图片"><span class="nav-number">3.2.</span> <span class="nav-text">插入图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加站内搜索"><span class="nav-number">3.3.</span> <span class="nav-text">添加站内搜索</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#给网页文章增加分类和标签"><span class="nav-number">3.4.</span> <span class="nav-text">给网页文章增加分类和标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#增加百度统计"><span class="nav-number">3.5.</span> <span class="nav-text">增加百度统计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何开启阅读全文"><span class="nav-number">3.6.</span> <span class="nav-text">如何开启阅读全文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#增加阅读时间和字数统计"><span class="nav-number">3.7.</span> <span class="nav-text">增加阅读时间和字数统计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#增加valine评论系统"><span class="nav-number">3.8.</span> <span class="nav-text">增加valine评论系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#leancloud中进行相关的准备工作"><span class="nav-number">3.8.1.</span> <span class="nav-text">leancloud中进行相关的准备工作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改主题配置文件next-config-yml"><span class="nav-number">3.8.2.</span> <span class="nav-text">修改主题配置文件next&#x2F;_config.yml</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#完善评论通知"><span class="nav-number">3.8.3.</span> <span class="nav-text">完善评论通知</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除评论"><span class="nav-number">3.8.4.</span> <span class="nav-text">删除评论</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#从零开始搭建个人博客"><span class="nav-number">1.</span> <span class="nav-text">从零开始搭建个人博客</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装依赖包node-js"><span class="nav-number">1.1.</span> <span class="nav-text">安装依赖包node.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装hexo"><span class="nav-number">1.2.</span> <span class="nav-text">安装hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#利用本地服务器生成网页"><span class="nav-number">1.3.</span> <span class="nav-text">利用本地服务器生成网页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署到Github-Pages"><span class="nav-number">1.4.</span> <span class="nav-text">部署到Github Pages</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装next主题来装点博客"><span class="nav-number">1.5.</span> <span class="nav-text">安装next主题来装点博客</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后续优化"><span class="nav-number">2.</span> <span class="nav-text">后续优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#首先阅读Hexo官方文档"><span class="nav-number">2.1.</span> <span class="nav-text">首先阅读Hexo官方文档</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#然后再看next主题官方文档"><span class="nav-number">2.2.</span> <span class="nav-text">然后再看next主题官方文档</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#入门"><span class="nav-number">2.2.1.</span> <span class="nav-text">入门</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#主题设定"><span class="nav-number">2.2.2.</span> <span class="nav-text">主题设定</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第三方服务"><span class="nav-number">2.2.3.</span> <span class="nav-text">第三方服务</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#给本地文章md文件按年月分类"><span class="nav-number">2.3.</span> <span class="nav-text">给本地文章md文件按年月分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入图片"><span class="nav-number">2.4.</span> <span class="nav-text">插入图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加站内搜索"><span class="nav-number">2.5.</span> <span class="nav-text">添加站内搜索</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#给网页文章增加分类和标签"><span class="nav-number">2.6.</span> <span class="nav-text">给网页文章增加分类和标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何开启阅读全文"><span class="nav-number">2.7.</span> <span class="nav-text">如何开启阅读全文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#增加阅读时间和字数统计"><span class="nav-number">2.8.</span> <span class="nav-text">增加阅读时间和字数统计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#增加valine评论系统"><span class="nav-number">2.9.</span> <span class="nav-text">增加valine评论系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#leancloud中进行相关的准备工作"><span class="nav-number">2.9.1.</span> <span class="nav-text">leancloud中进行相关的准备工作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改主题配置文件next-config-yml"><span class="nav-number">2.9.2.</span> <span class="nav-text">修改主题配置文件next&#x2F;_config.yml</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#完善评论通知"><span class="nav-number">2.9.3.</span> <span class="nav-text">完善评论通知</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除评论"><span class="nav-number">2.9.4.</span> <span class="nav-text">删除评论</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接"><span class="nav-number">3.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -624,12 +640,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">7k</span>
+    <span title="站点总字数">8k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">12 分钟</span>
+    <span title="站点阅读时长">13 分钟</span>
 </div>
 
         
