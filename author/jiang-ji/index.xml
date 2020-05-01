@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Jiang Ji | 小学生的博客</title>
-    <link>/author/jiang-ji/</link>
-      <atom:link href="/author/jiang-ji/index.xml" rel="self" type="application/rss+xml" />
+    <title>Jiang Ji | JohnJim&#39;s Blogs</title>
+    <link>https://johnjim0816.github.io/author/jiang-ji/</link>
+      <atom:link href="https://johnjim0816.github.io/author/jiang-ji/index.xml" rel="self" type="application/rss+xml" />
     <description>Jiang Ji</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>zh-Hans</language>
     <image>
-      <url>/author/jiang-ji/avatar_hua0151230f6c9b3ce4b3b3a61f1c6c9f0_136369_270x270_fill_q90_lanczos_center.jpg</url>
+      <url>https://johnjim0816.github.io/author/jiang-ji/avatar_hua0151230f6c9b3ce4b3b3a61f1c6c9f0_136369_270x270_fill_q90_lanczos_center.jpg</url>
       <title>Jiang Ji</title>
-      <link>/author/jiang-ji/</link>
+      <link>https://johnjim0816.github.io/author/jiang-ji/</link>
     </image>
     
   </channel>
