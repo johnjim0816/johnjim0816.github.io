@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://johnjim0816.github.io/categories/</loc>
+    <lastmod>2020-04-23T13:51:24+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://johnjim0816.github.io/</loc>
     <lastmod>2020-04-23T13:51:24+08:00</lastmod>
   </url>
@@ -13,16 +18,27 @@
   </url>
   
   <url>
-    <loc>https://johnjim0816.github.io/post/2020/04/vscode%E7%BC%96%E5%86%99latex/</loc>
+    <loc>https://johnjim0816.github.io/tags/</loc>
+    <lastmod>2020-04-23T13:51:24+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://johnjim0816.github.io/tag/vscode/</loc>
+    <lastmod>2020-04-23T13:51:24+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://johnjim0816.github.io/april/23/4/thursday/114/post/vscode%E7%BC%96%E5%86%99latex/vscode%E7%BC%96%E5%86%99latex/vscode%E7%BC%96%E5%86%99latex/</loc>
+    <lastmod>2020-04-23T13:51:24+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://johnjim0816.github.io/category/%E9%87%8E%E7%94%9F%E6%8A%80%E6%9C%AF/</loc>
     <lastmod>2020-04-23T13:51:24+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://johnjim0816.github.io/authors/</loc>
-  </url>
-  
-  <url>
-    <loc>https://johnjim0816.github.io/categories/</loc>
   </url>
   
   <url>
@@ -39,10 +55,6 @@
   
   <url>
     <loc>https://johnjim0816.github.io/talk/</loc>
-  </url>
-  
-  <url>
-    <loc>https://johnjim0816.github.io/tags/</loc>
   </url>
   
 </urlset>

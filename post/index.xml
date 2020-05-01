@@ -14,9 +14,9 @@
     
     <item>
       <title>VSCode编写latex</title>
-      <link>https://johnjim0816.github.io/post/2020/04/vscode%E7%BC%96%E5%86%99latex/</link>
+      <link>https://johnjim0816.github.io/april/23/4/thursday/114/post/vscode%E7%BC%96%E5%86%99latex/vscode%E7%BC%96%E5%86%99latex/vscode%E7%BC%96%E5%86%99latex/</link>
       <pubDate>Thu, 23 Apr 2020 13:51:24 +0800</pubDate>
-      <guid>https://johnjim0816.github.io/post/2020/04/vscode%E7%BC%96%E5%86%99latex/</guid>
+      <guid>https://johnjim0816.github.io/april/23/4/thursday/114/post/vscode%E7%BC%96%E5%86%99latex/vscode%E7%BC%96%E5%86%99latex/vscode%E7%BC%96%E5%86%99latex/</guid>
       <description>&lt;h2 id=&#34;写在前面&#34;&gt;写在前面&lt;/h2&gt;
 &lt;p&gt;由于latex相关软件的编辑界面不太舒服，加上笔者钟情于VSCode，而网上没有一个简单易用的VSCode搭建教程，故有此书。&lt;/p&gt;
 &lt;p&gt;编写latex的工具也多种多样，各有所爱，使用latex环境自带的编辑器固然无可厚非，然界面过于鄙陋，且无法实时编译预览，因而需要结合第三方文本编辑器，有结合ctex，有使用notepad++，而笔者更钟情于VSCode。VSCode的美妙无可言语，亦不多言，以下直接切入正题，如何使用VSCode编写latex，或者说搭建latex环境。&lt;/p&gt;
