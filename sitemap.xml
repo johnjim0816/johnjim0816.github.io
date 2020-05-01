@@ -3,7 +3,18 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/post/vscode%E7%BC%96%E5%86%99latex/</loc>
+    <loc>/post/</loc>
+    <lastmod>2020-04-23T13:51:24+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2020/vscode%E7%BC%96%E5%86%99latex/</loc>
+    <lastmod>2020-04-23T13:51:24+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2020-04-23T13:51:24+08:00</lastmod>
   </url>
   
   <url>
@@ -16,10 +27,6 @@
   
   <url>
     <loc>/author/jiang-ji/</loc>
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
   </url>
   
   <url>
@@ -36,10 +43,6 @@
   
   <url>
     <loc>/tags/</loc>
-  </url>
-  
-  <url>
-    <loc>/</loc>
   </url>
   
 </urlset>
