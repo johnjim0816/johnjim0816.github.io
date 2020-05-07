@@ -5,12 +5,211 @@
     <link>https://johnjim0816.github.io/category/%E9%87%8E%E7%94%9F%E6%8A%80%E6%9C%AF/</link>
       <atom:link href="https://johnjim0816.github.io/category/%E9%87%8E%E7%94%9F%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
     <description>野生技术</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>zh-Hans</language><lastBuildDate>Thu, 23 Apr 2020 13:51:24 +0800</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>zh-Hans</language><lastBuildDate>Thu, 07 May 2020 13:51:24 +0800</lastBuildDate>
     <image>
       <url>https://johnjim0816.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>野生技术</title>
       <link>https://johnjim0816.github.io/category/%E9%87%8E%E7%94%9F%E6%8A%80%E6%9C%AF/</link>
     </image>
+    
+    <item>
+      <title>Hugo&#43;github博客搭建笔记</title>
+      <link>https://johnjim0816.github.io/may/07/4/thursday/128/post/hugo-github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%AC%94%E8%AE%B0/hugo-github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%AC%94%E8%AE%B0/hugo-github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Thu, 07 May 2020 13:51:24 +0800</pubDate>
+      <guid>https://johnjim0816.github.io/may/07/4/thursday/128/post/hugo-github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%AC%94%E8%AE%B0/hugo-github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%AC%94%E8%AE%B0/hugo-github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%AC%94%E8%AE%B0/</guid>
+      <description>&lt;h2 id=&#34;为什么从hexo转向hugo&#34;&gt;为什么从Hexo转向Hugo&lt;/h2&gt;
+&lt;p&gt;Hexo优点很多，但缺点就是生成速度太慢。这是因为Hexo 基于 Nodejs ，有很多插件，而 Hugo 没有插件，使用自带的 Go html 模板实现。比如一般200篇左右的博文用Hexo 需要10分钟去生成静态网页，而Hugo 只需要10秒。&lt;/p&gt;
+&lt;h2 id=&#34;快速开始&#34;&gt;快速开始&lt;/h2&gt;
+&lt;h3 id=&#34;安装hugo&#34;&gt;安装hugo&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;brew install hugo
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;确认安装版本&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;hugo version
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;新建站点&#34;&gt;新建站点&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;hugo new site blogs
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这样会在当前目录下生成blog文件夹&lt;/p&gt;
+&lt;h3 id=&#34;下载主题&#34;&gt;下载主题&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cd blogs
+git clone add https://github.com/olOwOlo/hugo-theme-even.git theme/even
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;新建文章&#34;&gt;新建文章&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;hugo new post/test.md
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;本地运行&#34;&gt;本地运行&lt;/h3&gt;
+&lt;p&gt;完成文章后，直接执行server命令启动&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;hugo server
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;然后浏览器访问
+&lt;a href=&#34;http://localhost:1313/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://localhost:1313/&lt;/a&gt;就可以看到内容&lt;/p&gt;
+&lt;h3 id=&#34;更多主题&#34;&gt;更多主题&lt;/h3&gt;
+&lt;p&gt;官网的主题：&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://themes.gohugo.io/tags/documentation/&#34;&gt;https://themes.gohugo.io/tags/documentation/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;个人觉得不错的：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Docsy&lt;/p&gt;
+&lt;p&gt;超级完善的一个文档类主题， google出品，虽然不算是正式产品，特别适合做开源项目，强烈推荐。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/google/docsy&#34;&gt;https://github.com/google/docsy&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;使用academic主题搭建&#34;&gt;使用Academic主题搭建&lt;/h2&gt;
+&lt;p&gt;Academic是一个特别适合搭建内容相对比较丰富的网站的主题，简洁大方，也适合作为一个稍有规模的正式网站。&lt;/p&gt;
+&lt;p&gt;安装方式跟一般主题不太一样，但是我太喜欢，就暂停上面的快速开始，直接开始使用这个主题搭建吧。&lt;/p&gt;
+&lt;h3 id=&#34;安装hugo-1&#34;&gt;安装hugo&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;brew install hugo
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;确认安装版本&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;hugo version
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;安装站点zip方式&#34;&gt;安装站点(zip方式)&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;Academic提供一个快速开始的站点模版Kickstart，[下载](https://github.com/sourcethemes/academic-kickstart/archive/master.zip) 并解压，
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这一步跟快速搭建一节中的&lt;code&gt;hugo new site blog&lt;/code&gt;是一样的性质，可以把解压后的文件夹&lt;code&gt;academic-kickstart-master&lt;/code&gt;改名为&lt;code&gt;blogs&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;除了zip之外更多方式参考
+&lt;a href=&#34;https://sourcethemes.com/academic/docs/install/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://sourcethemes.com/academic/docs/install/&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;安装主题&#34;&gt;安装主题&lt;/h3&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://github.com/gcushen/hugo-academic/archive/master.zip&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;下载&lt;/a&gt; 并解压 &lt;em&gt;Academic theme&lt;/em&gt; ，将里面的文件全部复制到上面创建的&lt;code&gt;blogs/themes/academic&lt;/code&gt;文件夹中，注意这里已经将&lt;code&gt;academic-kickstart-master&lt;/code&gt;改名为&lt;code&gt;blogs&lt;/code&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;本地运行-1&#34;&gt;本地运行&lt;/h3&gt;
+&lt;p&gt;cd到&lt;code&gt;blogs&lt;/code&gt;目录， 执行&lt;code&gt;hugo server&lt;/code&gt;，然后就可以在
+&lt;a href=&#34;http://localhost:1313/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://localhost:1313/&lt;/a&gt;看到本地的默认网页。&lt;/p&gt;
+&lt;h3 id=&#34;部署到github-pages&#34;&gt;部署到Github Pages&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;在Github创建一个仓库，例如名字叫&lt;code&gt;blogs&lt;/code&gt;，可以是私有的，这个仓库用来存放网站内容和源文件&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;再创建一个名称为&lt;code&gt;&amp;lt;username&amp;gt;.github.io&lt;/code&gt;的仓库，&lt;code&gt;&amp;lt;username&amp;gt;&lt;/code&gt;为GitHub用户名，这个仓库用于存放最终发布的网站内容&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;进入本地网站目录&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cd blogs
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;关联远程blogs仓库&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;git remote add origin git@github.com:&amp;lt;username&amp;gt;/blogs.git
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;将本地网站全部内容推送到远程blogs仓库&lt;/p&gt;
+&lt;p&gt;注意(如有)先删除本地&lt;code&gt;blogs&lt;/code&gt;目录下的&lt;code&gt;public&lt;/code&gt;文件夹&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;git push -u origin master  
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;   
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;创建&lt;code&gt;public&lt;/code&gt;子模块&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;git submodule add -b master git@github.com:&amp;lt;username&amp;gt;/&amp;lt;username&amp;gt;.github.io.git public
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;执行&lt;code&gt;hugo&lt;/code&gt;命令，网站静态内容就会生成到&lt;code&gt;public&lt;/code&gt;文件夹，然后提交到远程blogs仓库，&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;hugo
+cd public
+git status
+git add .
+git commit -m &amp;quot;first commit&amp;quot;
+git push -u orgin master
+  
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;注：以上所有git操作都可以在VSCode中方便进行。&lt;/p&gt;
+&lt;p&gt;另外更改&lt;code&gt;config/_default/config.toml&lt;/code&gt;中的baseurl没改：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-toml&#34;&gt;# End your URL with a `/` trailing slash, e.g. `https://example.com/`.
+baseurl = &amp;quot;https://johnjim0816.github.io/&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;academic主题优化&#34;&gt;Academic主题优化&lt;/h2&gt;
+&lt;p&gt;可以参考
+&lt;a href=&#34;https://sourcethemes.com/academic/themes/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;academic主题&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;子主题风格&#34;&gt;子主题风格&lt;/h3&gt;
+&lt;p&gt;通过设置&lt;code&gt;config/_default/params.toml&lt;/code&gt;中的&lt;code&gt;theme&lt;/code&gt;变量更改，Academic主题提供了八种子主题，或者说风格，对应的本地文件在&lt;code&gt;themes/academic/data/themes&lt;/code&gt;目录下。&lt;/p&gt;
+&lt;p&gt;也可以
+&lt;a href=&#34;https://sourcethemes.com/academic/docs/customization/#custom-theme&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;自定义主题&lt;/a&gt;，但我目前使用内置的1950s主题。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-toml&#34;&gt;theme = &amp;quot;1950s&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;使用时发现localhost主题生效，但是github pages却还是默认的绿色风格，然后发现是&lt;code&gt;config/_default/config.toml&lt;/code&gt;中的baseurl没改：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-toml&#34;&gt;# End your URL with a `/` trailing slash, e.g. `https://example.com/`.
+baseurl = &amp;quot;https://johnjim0816.github.io/&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;更改语言&#34;&gt;更改语言&lt;/h3&gt;
+&lt;p&gt;修改&lt;code&gt;config/_default/languages.toml&lt;/code&gt;，将对应的英文注释掉，并加上中文，暂不启用多语言版本：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-toml&#34;&gt;#[en]
+#  languageCode = &amp;quot;en-us&amp;quot;
+
+[zh]
+  languageCode = &amp;quot;zh-Hans&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;此外修改&lt;code&gt;config/_default/config.toml&lt;/code&gt;中的默认语言&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-toml&#34;&gt;defaultContentLanguage = &amp;quot;zh&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;设置主页&#34;&gt;设置主页&lt;/h3&gt;
+&lt;p&gt;Academic提供了一些默认选项，用来展示在首页的东西，包括&lt;strong&gt;Publications&lt;/strong&gt;，&lt;strong&gt;Talks&lt;/strong&gt;等，对应本地&lt;code&gt;content/home/&lt;/code&gt;中的文件，如果不想展示，直接删掉或者在文件Front Matter处加入&lt;code&gt;active=false&lt;/code&gt;，如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-markdown&#34;&gt;---
+active: false
+---
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;其中个人或者作者简介对应&lt;code&gt;content/home/about.md&lt;/code&gt;，而具体信息在&lt;code&gt;content/authors/admin/_index.md&lt;/code&gt;中设置。&lt;/p&gt;
+&lt;p&gt;contact相关信息在&lt;code&gt;config/_default/params.toml&lt;/code&gt;中&lt;/p&gt;
+&lt;h3 id=&#34;增加目录&#34;&gt;增加目录&lt;/h3&gt;
+&lt;p&gt;如果是增加顶部目录，只需要在文章内任意位置添加&lt;h2&gt;目录&lt;/h2&gt;
+&lt;nav id=&#34;TableOfContents&#34;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;#为什么从hexo转向hugo&#34;&gt;为什么从Hexo转向Hugo&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#快速开始&#34;&gt;快速开始&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;#安装hugo&#34;&gt;安装hugo&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#新建站点&#34;&gt;新建站点&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#下载主题&#34;&gt;下载主题&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#新建文章&#34;&gt;新建文章&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#本地运行&#34;&gt;本地运行&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#更多主题&#34;&gt;更多主题&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#使用academic主题搭建&#34;&gt;使用Academic主题搭建&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;#安装hugo-1&#34;&gt;安装hugo&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#安装站点zip方式&#34;&gt;安装站点(zip方式)&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#安装主题&#34;&gt;安装主题&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#本地运行-1&#34;&gt;本地运行&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#部署到github-pages&#34;&gt;部署到Github Pages&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#academic主题优化&#34;&gt;Academic主题优化&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;#子主题风格&#34;&gt;子主题风格&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#更改语言&#34;&gt;更改语言&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#设置主页&#34;&gt;设置主页&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#增加目录&#34;&gt;增加目录&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#refs&#34;&gt;Refs&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;&lt;/p&gt;
+&lt;p&gt;跟常见的&lt;code&gt;[TOC]&lt;/code&gt;一样的效果。&lt;/p&gt;
+&lt;p&gt;而增加侧边栏目录则需要更改&lt;code&gt;single.html&lt;/code&gt;文件，具体参考
+&lt;a href=&#34;https://github.com/gcushen/hugo-academic/issues/1520&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;TOC for blog posts #1520&lt;/a&gt;中&lt;code&gt;CharlieLeee&lt;/code&gt;的回答.&lt;/p&gt;
+&lt;h2 id=&#34;refs&#34;&gt;Refs&lt;/h2&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://sspai.com/post/59904&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;浅谈我为什么从 HEXO 迁移到 HUGO&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://dp2px.com/2019/08/30/go-hugo1/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;我为什么要从Hexo更换到Hugo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://gohugo.io/getting-started/quick-start/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://gohugo.io/getting-started/quick-start/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://sourcethemes.com/academic/docs/get-started/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Academic官方文档&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://skyao.io/learning-hugo/theme/theme.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;hugo学习笔记&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://jeshs.github.io/2019/01/hugo%e9%83%a8%e7%bd%b2%e5%88%b0github/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Hugo部署到Github&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>VSCode编写latex</title>
