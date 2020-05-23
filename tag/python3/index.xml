@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>python3 | JohnJim&#39;s Blog</title>
+    <link>https://johnjim0816.github.io/tag/python3/</link>
+      <atom:link href="https://johnjim0816.github.io/tag/python3/index.xml" rel="self" type="application/rss+xml" />
+    <description>python3</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>zh-Hans</language><lastBuildDate>Sat, 23 May 2020 16:25:59 +0800</lastBuildDate>
+    <image>
+      <url>https://johnjim0816.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>python3</title>
+      <link>https://johnjim0816.github.io/tag/python3/</link>
+    </image>
+    
+    <item>
+      <title>深入了解import声明</title>
+      <link>https://johnjim0816.github.io/may/23/6/saturday/144/post/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3import%E5%A3%B0%E6%98%8E/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3import%E5%A3%B0%E6%98%8E/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3import%E5%A3%B0%E6%98%8E/</link>
+      <pubDate>Sat, 23 May 2020 16:25:59 +0800</pubDate>
+      <guid>https://johnjim0816.github.io/may/23/6/saturday/144/post/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3import%E5%A3%B0%E6%98%8E/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3import%E5%A3%B0%E6%98%8E/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3import%E5%A3%B0%E6%98%8E/</guid>
+      <description>&lt;p&gt;import声明即用于导入模块，比如&lt;code&gt;import numpy as np&lt;/code&gt;，但是涉及复杂工程目录时容易搞得稀里糊涂，于是我专门使用了&lt;code&gt;python3.7&lt;/code&gt;来测试并解决import相关问题。&lt;/p&gt;
+&lt;h2 id=&#34;基本定义&#34;&gt;基本定义&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;module&lt;/strong&gt;：即模块，也就是中各种&lt;code&gt;.py&lt;/code&gt;文件，模块名就是文件名&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;built-in-module&lt;/strong&gt;：即内置模块，就是在安装python的时候系统编译在python解释器中的，比如&lt;code&gt;numpy&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;package&lt;/strong&gt;：任何包含&lt;code&gt;__init__.py&lt;/code&gt;文件的文件夹就是一个package。注意根据
+&lt;a href=&#34;https://docs.python.org/3.7/reference/import.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;python document&lt;/a&gt;，在python3.3以上中，即使没有&lt;code&gt;__init__.py&lt;/code&gt;，文件夹也被自动视作一个package&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;object&lt;/strong&gt;：即对象，在python中，对象可以是函数，类以及变量等。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;import与syspath&#34;&gt;import与sys.path&lt;/h2&gt;
+&lt;p&gt;如果import导入了一个module，就能运行该module中的所有代码。导入package时，会运行package目录下的&lt;code&gt;__init__.py&lt;/code&gt;，然后通过&lt;code&gt;__init__.py&lt;/code&gt;运行package目录下的所有module，&lt;code&gt;__init__.py&lt;/code&gt;可以是空的，前面讲到在python3.3以上，&lt;code&gt;__init__.py&lt;/code&gt;可以没有。&lt;/p&gt;
+&lt;p&gt;import会自动在&lt;code&gt;sys.path&lt;/code&gt;包含的目录中寻找相应的模块或者包，在一个&lt;code&gt;.py&lt;/code&gt;脚本被运行时，&lt;code&gt;sys.path&lt;/code&gt;会初始化包含以下目录：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;PYTHONPATH&lt;/code&gt;，即常说的系统环境变量&lt;code&gt;PATH&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;默认安装的模块目录，比如&lt;code&gt;numpy&lt;/code&gt;就在此目录中&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.py&lt;/code&gt;脚本所在的目录，这一点根据脚本所在的目录不同是可以变化的。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;常用的import方式&#34;&gt;常用的import方式&lt;/h2&gt;
+&lt;p&gt;常用的import方式有四种：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import &amp;lt;package&amp;gt;
+
+import &amp;lt;module&amp;gt;
+
+from &amp;lt;package&amp;gt; import &amp;lt;module or subpackage or object&amp;gt;
+
+from &amp;lt;module&amp;gt; import &amp;lt;object&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;当然还有&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import &amp;lt;module&amp;gt; as   # 比如 import numpy as np
+import &amp;lt;object&amp;gt; as
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;场景1导入系统以及同级目录下的模块&#34;&gt;场景1：导入系统以及同级目录下的模块&lt;/h2&gt;
+&lt;p&gt;对于以下的工程目录：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;test/                      # 跟目录
+    packA/                 # package packA
+        subA/              # subpackage subA
+            __init__.py
+            sa1.py
+            sa2.py
+        __init__.py
+        a1.py
+        a2.py
+    packB/                 # package packB (implicit namespace package)
+        b1.py
+        b2.py
+    other.py
+    start.py
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;要在&lt;code&gt;start.py&lt;/code&gt;中导入系统&lt;code&gt;numpy&lt;/code&gt;模块，以及同级目录下的&lt;code&gt;other&lt;/code&gt;模块，只需要：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import numpy
+import numpy as np # 通常将numpy重命名为np
+import other
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;然后运行&lt;code&gt;start.py&lt;/code&gt;脚本&lt;/p&gt;
+&lt;h2 id=&#34;场景2导入子目录下的模块&#34;&gt;场景2:导入子目录下的模块&lt;/h2&gt;
+&lt;p&gt;如果需要在&lt;code&gt;start.py&lt;/code&gt;中导入&lt;code&gt;a1.py&lt;/code&gt;，&lt;code&gt;b1.py&lt;/code&gt;以及&lt;code&gt;sa1.py&lt;/code&gt;模块，只需要在&lt;code&gt;start.py&lt;/code&gt;中：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import packA.a1
+import packB.b1
+import packA.subA.sa1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;如果只需要导入比如&lt;code&gt;a1.py&lt;/code&gt;某个函数&lt;code&gt;a1_func()&lt;/code&gt;，只需要：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from packA.a1 import a1_func()
+from packA.subA.sa1 import sa1_func() # 跟上面同理
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;注意在&lt;code&gt;start.py&lt;/code&gt;和在&lt;code&gt;a1.py&lt;/code&gt;导入&lt;code&gt;sa1.py&lt;/code&gt;是不同的，在&lt;code&gt;a1.py&lt;/code&gt;需要：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import subA.sa1
+from subA.sa1 import sa1_func()
+from subA import sa2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;因为运行&lt;code&gt;a1.py&lt;/code&gt;时&lt;code&gt;sys.path&lt;/code&gt;的相应目录已经改变，只包含&lt;code&gt;a1.py&lt;/code&gt;脚本所在的目录。而对于python3，在&lt;code&gt;start.py&lt;/code&gt;是不能跨越子目录直接导入&lt;code&gt;sa1.py&lt;/code&gt;的，比如&lt;code&gt;from subA import sa1&lt;/code&gt;，但是在python2中可以，下面做个简单的总结：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;运行&lt;/th&gt;
+&lt;th&gt;from packA.subA import sa1&lt;/th&gt;
+&lt;th&gt;from subA import sa1&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;start.py&lt;/td&gt;
+&lt;td&gt;OK&lt;/td&gt;
+&lt;td&gt;Py2 OK, Py3 fail (subA not in test/)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;a1.py&lt;/td&gt;
+&lt;td&gt;fail (packA not in test/packA/)&lt;/td&gt;
+&lt;td&gt;OK&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;场景3导入父目录下的模块&#34;&gt;场景3:导入父目录下的模块&lt;/h2&gt;
+&lt;p&gt;如果需要在&lt;code&gt;a1.py&lt;/code&gt;中导入父目录下&lt;code&gt;other.py&lt;/code&gt;或者是&lt;code&gt;packB&lt;/code&gt;目录下的&lt;code&gt;b1.py&lt;/code&gt;，此时就需要对&lt;code&gt;sys.path&lt;/code&gt;作出修改了，因为运行&lt;code&gt;a1.py&lt;/code&gt;时&lt;code&gt;sys.path&lt;/code&gt;包含&lt;code&gt;a1.py&lt;/code&gt;所在的目录&lt;code&gt;packA&lt;/code&gt;，并不包含目录&lt;code&gt;packB&lt;/code&gt;以及父目录&lt;code&gt;test&lt;/code&gt;。
+修改&lt;code&gt;sys.path&lt;/code&gt;需要用到&lt;code&gt;sys&lt;/code&gt;以及&lt;code&gt;os&lt;/code&gt;模块，首先需要知道怎么获取当前目录以及父目录，在&lt;code&gt;a1.py&lt;/code&gt;中如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;current_path=os.path.dirname(__file__) #当前a1.py所在的目录packA 
+parent_path=os.path.dirname(os.path.dirname(__file__)) #当前a1.py所在的父目录或者说上级目录test
+p_parent_path=os.path.dirname(os.path.dirname(os.path.dirname(__file__))) ##获取上上级目录
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;下面修改&lt;code&gt;sys.path&lt;/code&gt;，对于在&lt;code&gt;a1.py&lt;/code&gt;中导入父目录下&lt;code&gt;other.py&lt;/code&gt;或者是&lt;code&gt;packB&lt;/code&gt;目录下的&lt;code&gt;b1.py&lt;/code&gt;，只需要将&lt;code&gt;parent_path&lt;/code&gt;加入到```sys.path``即可，&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;sys.path.append(parent_path)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;然后就可以导入&lt;code&gt;other.py&lt;/code&gt;以及&lt;code&gt;b1.py&lt;/code&gt;了，完整代码如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import sys
+import os
+# print(os.getcwd())
+# sys.path.append(os.getcwd())
+parent_path=os.path.dirname(os.path.dirname(__file__)) # 获取上级目录
+p_parent_path=os.path.dirname(os.path.dirname(os.path.dirname(__file__))) # 获取上上级目录
+sys.path.append(parent_path) # 修改sys.path
+import other # 导入test下的other
+import packB.b1 # 导入b1
+import packA.a2 #导入a2
+import a2 # 此时sys.path既包含上级目录test也包含当前目录packA，所以跟上面一样
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;此外顺便提到&lt;code&gt;os.getcwd()&lt;/code&gt;，注意该函数是获取当前终端的路径而不是脚本的路径，所以为了避免混淆，建议采用&lt;code&gt;os.path.dirname(__file__)&lt;/code&gt;这样的形式。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

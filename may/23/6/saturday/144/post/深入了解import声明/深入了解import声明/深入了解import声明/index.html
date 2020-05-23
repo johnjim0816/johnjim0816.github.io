@@ -1,0 +1,1152 @@
+<!DOCTYPE html><html lang="zh-Hans" >
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.8.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Jiang Ji">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="import声明即用于导入模块，比如import numpy as np，但">
+
+  
+  <link rel="alternate" hreflang="zh-Hans" href="https://johnjim0816.github.io/may/23/6/saturday/144/post/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3import%E5%A3%B0%E6%98%8E/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3import%E5%A3%B0%E6%98%8E/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3import%E5%A3%B0%E6%98%8E/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="#EF525B">
+  
+
+  
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css" integrity="sha256-4w9DunooKSr3MFXHXWyFER38WmPdm361bQS/2KUWZbU=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous">
+    
+
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+        
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cutive+Mono%7CLora:400,700%7CRoboto:400,700&display=swap">
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+  
+
+
+  
+  
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_2.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png">
+
+  <link rel="canonical" href="https://johnjim0816.github.io/may/23/6/saturday/144/post/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3import%E5%A3%B0%E6%98%8E/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3import%E5%A3%B0%E6%98%8E/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3import%E5%A3%B0%E6%98%8E/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="og:site_name" content="JohnJim&#39;s Blog">
+  <meta property="og:url" content="https://johnjim0816.github.io/may/23/6/saturday/144/post/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3import%E5%A3%B0%E6%98%8E/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3import%E5%A3%B0%E6%98%8E/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3import%E5%A3%B0%E6%98%8E/">
+  <meta property="og:title" content="深入了解import声明 | JohnJim&#39;s Blog">
+  <meta property="og:description" content="import声明即用于导入模块，比如import numpy as np，但"><meta property="og:image" content="https://johnjim0816.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png">
+  <meta property="twitter:image" content="https://johnjim0816.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="zh-Hans">
+  
+    
+      <meta property="article:published_time" content="2020-05-23T16:25:59&#43;08:00">
+    
+    <meta property="article:modified_time" content="2020-05-23T16:25:59&#43;08:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://johnjim0816.github.io/may/23/6/saturday/144/post/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3import%E5%A3%B0%E6%98%8E/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3import%E5%A3%B0%E6%98%8E/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3import%E5%A3%B0%E6%98%8E/"
+  },
+  "headline": "深入了解import声明",
+  
+  "datePublished": "2020-05-23T16:25:59+08:00",
+  "dateModified": "2020-05-23T16:25:59+08:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Jiang Ji"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "JohnJim's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://johnjim0816.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png"
+    }
+  },
+  "description": "import声明即用于导入模块，比如import numpy as np，但"
+}
+</script>
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>深入了解import声明 | JohnJim&#39;s Blog</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>搜索</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="搜索..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">JohnJim&#39;s Blog</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="切换导航">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">JohnJim&#39;s Blog</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>主页</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>发布</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#tags"><span>学习笔记</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#links"><span>友情链接</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>联系</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      <li class="nav-item dropdown theme-dropdown">
+        <a href="#" class="nav-link js-theme-selector" data-toggle="dropdown" aria-haspopup="true">
+          <i class="fas fa-palette" aria-hidden="true"></i>
+        </a>
+        <div class="dropdown-menu">
+          <a href="#" class="dropdown-item js-set-theme-light">
+            <span>Light</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-dark">
+            <span>Dark</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-auto">
+            <span>Automatic</span>
+          </a>
+        </div>
+      </li>
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  
+        <article class="article">
+            
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>深入了解import声明</h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    May 23, 2020
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    4 分钟阅读时长
+  </span>
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/may/23/6/saturday/144/post/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3import%E5%A3%B0%E6%98%8E/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3import%E5%A3%B0%E6%98%8E/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3import%E5%A3%B0%E6%98%8E/#disqus_thread"></a>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/category/python3/">python3</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+            <div class="article-container">
+              <div class="article-style">
+                <p>import声明即用于导入模块，比如<code>import numpy as np</code>，但是涉及复杂工程目录时容易搞得稀里糊涂，于是我专门使用了<code>python3.7</code>来测试并解决import相关问题。</p>
+<h2 id="基本定义">基本定义</h2>
+<ul>
+<li>
+<p><strong>module</strong>：即模块，也就是中各种<code>.py</code>文件，模块名就是文件名</p>
+</li>
+<li>
+<p><strong>built-in-module</strong>：即内置模块，就是在安装python的时候系统编译在python解释器中的，比如<code>numpy</code></p>
+</li>
+<li>
+<p><strong>package</strong>：任何包含<code>__init__.py</code>文件的文件夹就是一个package。注意根据
+<a href="https://docs.python.org/3.7/reference/import.html" target="_blank" rel="noopener">python document</a>，在python3.3以上中，即使没有<code>__init__.py</code>，文件夹也被自动视作一个package</p>
+</li>
+<li>
+<p><strong>object</strong>：即对象，在python中，对象可以是函数，类以及变量等。</p>
+</li>
+</ul>
+<h2 id="import与syspath">import与sys.path</h2>
+<p>如果import导入了一个module，就能运行该module中的所有代码。导入package时，会运行package目录下的<code>__init__.py</code>，然后通过<code>__init__.py</code>运行package目录下的所有module，<code>__init__.py</code>可以是空的，前面讲到在python3.3以上，<code>__init__.py</code>可以没有。</p>
+<p>import会自动在<code>sys.path</code>包含的目录中寻找相应的模块或者包，在一个<code>.py</code>脚本被运行时，<code>sys.path</code>会初始化包含以下目录：</p>
+<ul>
+<li><code>PYTHONPATH</code>，即常说的系统环境变量<code>PATH</code></li>
+<li>默认安装的模块目录，比如<code>numpy</code>就在此目录中</li>
+<li><code>.py</code>脚本所在的目录，这一点根据脚本所在的目录不同是可以变化的。</li>
+</ul>
+<h2 id="常用的import方式">常用的import方式</h2>
+<p>常用的import方式有四种：</p>
+<pre><code class="language-python">import &lt;package&gt;
+
+import &lt;module&gt;
+
+from &lt;package&gt; import &lt;module or subpackage or object&gt;
+
+from &lt;module&gt; import &lt;object&gt;
+</code></pre>
+<p>当然还有</p>
+<pre><code class="language-python">import &lt;module&gt; as   # 比如 import numpy as np
+import &lt;object&gt; as
+</code></pre>
+<h2 id="场景1导入系统以及同级目录下的模块">场景1：导入系统以及同级目录下的模块</h2>
+<p>对于以下的工程目录：</p>
+<pre><code>test/                      # 跟目录
+    packA/                 # package packA
+        subA/              # subpackage subA
+            __init__.py
+            sa1.py
+            sa2.py
+        __init__.py
+        a1.py
+        a2.py
+    packB/                 # package packB (implicit namespace package)
+        b1.py
+        b2.py
+    other.py
+    start.py
+</code></pre>
+<p>要在<code>start.py</code>中导入系统<code>numpy</code>模块，以及同级目录下的<code>other</code>模块，只需要：</p>
+<pre><code class="language-python">import numpy
+import numpy as np # 通常将numpy重命名为np
+import other
+</code></pre>
+<p>然后运行<code>start.py</code>脚本</p>
+<h2 id="场景2导入子目录下的模块">场景2:导入子目录下的模块</h2>
+<p>如果需要在<code>start.py</code>中导入<code>a1.py</code>，<code>b1.py</code>以及<code>sa1.py</code>模块，只需要在<code>start.py</code>中：</p>
+<pre><code class="language-python">import packA.a1
+import packB.b1
+import packA.subA.sa1
+</code></pre>
+<p>如果只需要导入比如<code>a1.py</code>某个函数<code>a1_func()</code>，只需要：</p>
+<pre><code class="language-python">from packA.a1 import a1_func()
+from packA.subA.sa1 import sa1_func() # 跟上面同理
+</code></pre>
+<p>注意在<code>start.py</code>和在<code>a1.py</code>导入<code>sa1.py</code>是不同的，在<code>a1.py</code>需要：</p>
+<pre><code class="language-python">import subA.sa1
+from subA.sa1 import sa1_func()
+from subA import sa2
+</code></pre>
+<p>因为运行<code>a1.py</code>时<code>sys.path</code>的相应目录已经改变，只包含<code>a1.py</code>脚本所在的目录。而对于python3，在<code>start.py</code>是不能跨越子目录直接导入<code>sa1.py</code>的，比如<code>from subA import sa1</code>，但是在python2中可以，下面做个简单的总结：</p>
+<table>
+<thead>
+<tr>
+<th>运行</th>
+<th>from packA.subA import sa1</th>
+<th>from subA import sa1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>start.py</td>
+<td>OK</td>
+<td>Py2 OK, Py3 fail (subA not in test/)</td>
+</tr>
+<tr>
+<td>a1.py</td>
+<td>fail (packA not in test/packA/)</td>
+<td>OK</td>
+</tr>
+</tbody>
+</table>
+<h2 id="场景3导入父目录下的模块">场景3:导入父目录下的模块</h2>
+<p>如果需要在<code>a1.py</code>中导入父目录下<code>other.py</code>或者是<code>packB</code>目录下的<code>b1.py</code>，此时就需要对<code>sys.path</code>作出修改了，因为运行<code>a1.py</code>时<code>sys.path</code>包含<code>a1.py</code>所在的目录<code>packA</code>，并不包含目录<code>packB</code>以及父目录<code>test</code>。
+修改<code>sys.path</code>需要用到<code>sys</code>以及<code>os</code>模块，首先需要知道怎么获取当前目录以及父目录，在<code>a1.py</code>中如下：</p>
+<pre><code class="language-python">current_path=os.path.dirname(__file__) #当前a1.py所在的目录packA 
+parent_path=os.path.dirname(os.path.dirname(__file__)) #当前a1.py所在的父目录或者说上级目录test
+p_parent_path=os.path.dirname(os.path.dirname(os.path.dirname(__file__))) ##获取上上级目录
+</code></pre>
+<p>下面修改<code>sys.path</code>，对于在<code>a1.py</code>中导入父目录下<code>other.py</code>或者是<code>packB</code>目录下的<code>b1.py</code>，只需要将<code>parent_path</code>加入到```sys.path``即可，</p>
+<pre><code class="language-python">sys.path.append(parent_path)
+</code></pre>
+<p>然后就可以导入<code>other.py</code>以及<code>b1.py</code>了，完整代码如下：</p>
+<pre><code class="language-python">import sys
+import os
+# print(os.getcwd())
+# sys.path.append(os.getcwd())
+parent_path=os.path.dirname(os.path.dirname(__file__)) # 获取上级目录
+p_parent_path=os.path.dirname(os.path.dirname(os.path.dirname(__file__))) # 获取上上级目录
+sys.path.append(parent_path) # 修改sys.path
+import other # 导入test下的other
+import packB.b1 # 导入b1
+import packA.a2 #导入a2
+import a2 # 此时sys.path既包含上级目录test也包含当前目录packA，所以跟上面一样
+</code></pre>
+<p>此外顺便提到<code>os.getcwd()</code>，注意该函数是获取当前终端的路径而不是脚本的路径，所以为了避免混淆，建议采用<code>os.path.dirname(__file__)</code>这样的形式。</p>
+
+              </div>
+              
+
+
+
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tag/python3/">python3</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://johnjim0816.github.io/may/23/6/saturday/144/post/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3import%E5%A3%B0%E6%98%8E/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3import%E5%A3%B0%E6%98%8E/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3import%E5%A3%B0%E6%98%8E/&amp;text=%e6%b7%b1%e5%85%a5%e4%ba%86%e8%a7%a3import%e5%a3%b0%e6%98%8e" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://johnjim0816.github.io/may/23/6/saturday/144/post/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3import%E5%A3%B0%E6%98%8E/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3import%E5%A3%B0%E6%98%8E/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3import%E5%A3%B0%E6%98%8E/&amp;t=%e6%b7%b1%e5%85%a5%e4%ba%86%e8%a7%a3import%e5%a3%b0%e6%98%8e" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=%e6%b7%b1%e5%85%a5%e4%ba%86%e8%a7%a3import%e5%a3%b0%e6%98%8e&amp;body=https://johnjim0816.github.io/may/23/6/saturday/144/post/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3import%E5%A3%B0%E6%98%8E/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3import%E5%A3%B0%E6%98%8E/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3import%E5%A3%B0%E6%98%8E/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://johnjim0816.github.io/may/23/6/saturday/144/post/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3import%E5%A3%B0%E6%98%8E/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3import%E5%A3%B0%E6%98%8E/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3import%E5%A3%B0%E6%98%8E/&amp;title=%e6%b7%b1%e5%85%a5%e4%ba%86%e8%a7%a3import%e5%a3%b0%e6%98%8e" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=%e6%b7%b1%e5%85%a5%e4%ba%86%e8%a7%a3import%e5%a3%b0%e6%98%8e%20https://johnjim0816.github.io/may/23/6/saturday/144/post/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3import%E5%A3%B0%E6%98%8E/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3import%E5%A3%B0%E6%98%8E/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3import%E5%A3%B0%E6%98%8E/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://johnjim0816.github.io/may/23/6/saturday/144/post/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3import%E5%A3%B0%E6%98%8E/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3import%E5%A3%B0%E6%98%8E/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3import%E5%A3%B0%E6%98%8E/&amp;title=%e6%b7%b1%e5%85%a5%e4%ba%86%e8%a7%a3import%e5%a3%b0%e6%98%8e" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+    
+    
+    
+      
+    
+    
+    
+    <div class="media author-card content-widget-hr">
+      
+        
+        <img class="avatar mr-3 avatar-circle" src="/author/jiang-ji/avatar_hua0151230f6c9b3ce4b3b3a61f1c6c9f0_136369_270x270_fill_q90_lanczos_center.jpg" alt="Jiang Ji">
+      
+
+      <div class="media-body">
+        <h5 class="card-title"><a href="https://johnjim0816.github.io/">Jiang Ji</a></h5>
+        
+        
+        <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="/#contact" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/johnjim0816" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+</ul>
+
+      </div>
+    </div>
+  
+
+
+
+
+
+
+
+<section id="comments">
+  
+    
+
+  
+</section>
+
+
+
+
+
+
+  
+  
+
+
+            </div>
+        </article>
+  
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js" integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/r.min.js"></script>
+        
+      
+
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js" integrity="sha256-EErZamuLefUnbMBQbsEqu1USa+btR2oIlCpBJbyD4/g=" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    <script>const isSiteThemeDark = false;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"没有找到结果","placeholder":"搜索...","results":"搜索结果"};
+      const content_type = {
+        'post': "文章",
+        'project': "项目",
+        'publication' : "出版物",
+        'talk' : "演讲"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.37431be2d92d7fb0160054761ab79602.js"></script>
+
+    
+
+
+
+
+
+
+  
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" class="back-to-top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">引用</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> 复制
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> 下载
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
