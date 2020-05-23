@@ -320,12 +320,15 @@ active: false
         &lt;li&gt;&lt;a href=&#34;#增加目录&#34;&gt;增加目录&lt;/a&gt;&lt;/li&gt;
       &lt;/ul&gt;
     &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#修改post默认模版&#34;&gt;修改post默认模版&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&#34;#refs&#34;&gt;Refs&lt;/a&gt;&lt;/li&gt;
   &lt;/ul&gt;
 &lt;/nav&gt;&lt;/p&gt;
 &lt;p&gt;跟常见的&lt;code&gt;[TOC]&lt;/code&gt;一样的效果。&lt;/p&gt;
 &lt;p&gt;而增加侧边栏目录则需要更改&lt;code&gt;single.html&lt;/code&gt;文件，具体参考
 &lt;a href=&#34;https://github.com/gcushen/hugo-academic/issues/1520&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;TOC for blog posts #1520&lt;/a&gt;中&lt;code&gt;CharlieLeee&lt;/code&gt;的回答.&lt;/p&gt;
+&lt;h2 id=&#34;修改post默认模版&#34;&gt;修改post默认模版&lt;/h2&gt;
+&lt;p&gt;具体模版文件在&lt;code&gt;themes/academic/archetypes/post/index.md&lt;/code&gt;中&lt;/p&gt;
 &lt;h2 id=&#34;refs&#34;&gt;Refs&lt;/h2&gt;
 &lt;p&gt;
 &lt;a href=&#34;https://sspai.com/post/59904&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;浅谈我为什么从 HEXO 迁移到 HUGO&lt;/a&gt;&lt;/p&gt;
