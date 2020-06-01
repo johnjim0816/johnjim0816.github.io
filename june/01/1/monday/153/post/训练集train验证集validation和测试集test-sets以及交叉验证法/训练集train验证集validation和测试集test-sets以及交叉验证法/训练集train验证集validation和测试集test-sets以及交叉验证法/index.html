@@ -684,9 +684,9 @@
 <img src="https://img-blog.csdnimg.cn/20200601163111113.png" alt="在这里插入图片描述">
 在训练集中调整参数以后，比如训练model1，model2，model3，将模型在验证集上测试，选出error最小的比如model1，然后用model1在整个Training Set上再训一次，然后使用Testing Set(Public)评价其泛化能力，这样此时在Testing Set(Public)上的结果就能跟最终的Private Testing Set相近了。</p>
 <h2 id="交叉验证">交叉验证</h2>
-<p>其实上面的验证集也只是从Training Set中抽出了一次，也就是只根据课本知识的某一部分布置了作业，想要得到最终好的结果就需要进行多组实验。交叉验证的做法就是将数据集分为近似均等且不相交的$k$份，如下：
-$$
-D=D_1 \or D_2 \or &hellip; \or D_k \<br>
+<p>其实上面的验证集也只是从Training Set中抽出了一次，也就是只根据课本知识的某一部分布置了作业，想要得到最终好的结果就需要进行多组实验。交叉验证的做法就是将数据集分为近似均等且不相交的$k$份，如下：</p>
+<p>$$
+D=D_1 \cup   D_2 \cup   &hellip; \cup   D_k  \<br>
 D_i \neq D_i (i \neq j)
 $$</p>
 <p>然后依次取其中一份作为验证集，其余作为训练集进行训练，然后求得error的均值作为用于评价来调整模型参数，如下：</p>
