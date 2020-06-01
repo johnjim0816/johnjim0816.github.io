@@ -31,7 +31,9 @@
 &lt;h2 id=&#34;交叉验证&#34;&gt;交叉验证&lt;/h2&gt;
 &lt;p&gt;其实上面的验证集也只是从Training Set中抽出了一次，也就是只根据课本知识的某一部分布置了作业，想要得到最终好的结果就需要进行多组实验。交叉验证的做法就是将数据集分为近似均等且不相交的$k$份，如下：&lt;/p&gt;
 &lt;p&gt;$$
-D=D_1 \cup   D_2 \cup   &amp;hellip; \cup   D_k  \&lt;br&gt;
+D=D_1 \cup D_2 \cup &amp;hellip; \cup D_k
+$$&lt;/p&gt;
+&lt;p&gt;$$
 D_i \neq D_i (i \neq j)
 $$&lt;/p&gt;
 &lt;p&gt;然后依次取其中一份作为验证集，其余作为训练集进行训练，然后求得error的均值作为用于评价来调整模型参数，如下：&lt;/p&gt;
