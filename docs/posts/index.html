@@ -94,6 +94,30 @@
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
+      <a href="/posts/hugo&#43;github-pages%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/readme/" class="link black dim">
+        Hugo&#43;Github Pages搭建教程
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      1、安装Hugo 可以参考Hugo官网安装教程，以下安装过程仅适用于MacOS Monterey系统
+注意(2022-08-08)安装Hugo之前需要安装Git和Go:
+## 安装以及更新Git，brew不好用的话看下MacPorts(port)：https://www.macports.org/install.php brew install git ## 安装以及更新Go，直接去官网https://go.dev/learn/，安装 ## 安装Hugo /bin/bash -c &#34;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&#34; brew install hugo ## 查看Hugo版本确认是否安装成功 hugo version 2、初步体验Hugo 首先生成一个本地文档，
+hugo new site personal-site 由此可以得到以下目录：
+personal-site ├── archetypes # 新文章默认模板 ├── config.toml # 配置文档 ├── content # 存放所有Markdown格式的文章 ├── data ├── layouts # 存放自定义的view，可为空 ├── static # 存放图像、CNAME、css、js等资源，发布后该目录下所有资源将处于网页根目录 └── themes # 存放下载的主题 新建一个github repo，必须是[username].github.io，比如johnjim0816.github.io，把上面personal-site文件夹下的所有文件复制到这个repo中。
+然后执行以下命令就可以新建文章了：
+hugo new posts/test.md # 新建一个名为test的文章 然后执行：
+hugo server 就可以在本地(一般是http://localhost:1313/)看文章效果了。
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
       <a href="/posts/test/" class="link black dim">
         Test
       </a>
