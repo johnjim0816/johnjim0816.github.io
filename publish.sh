@@ -12,7 +12,7 @@ mkdir public
 rm -rf .git/worktrees/public/
 
 echo "Checking out gh-pages branch into public"
-git worktree add -B gh-pages public origin/gh-pages
+git worktree add -B dev public origin/gh-pages
 
 echo "Removing existing files"
 rm -rf public/*
