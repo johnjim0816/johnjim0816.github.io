@@ -1,0 +1,20 @@
+<nav class="lang-switch">
+  {{- $cur := . -}}
+  {{- if .IsHome }}
+    {{- range .Sites }}
+      <a href="{{ .Home.RelPermalink }}" class="{{ if eq .Language.Lang $cur.Language.Lang }}active{{ end }}">
+        {{ .Language.LanguageName | default (upper .Language.Lang) }}
+      </a>
+    {{- end }}
+  {{- else if .IsTranslated }}
+    {{- range .AllTranslations }}
+      <a href="{{ .RelPermalink }}" class="{{ if eq .Language.Lang $cur.Language.Lang }}active{{ end }}">
+        {{ .Language.LanguageName | default (upper .Language.Lang) }}
+      </a>
+    {{- end }}
+  {{- else }}
+    {{- range .Sites }}
+      <a href="{{ .Home.RelPermalink }}">{{ .Language.LanguageName }}</a>
+    {{- end }}
+  {{- end }}
+</nav>

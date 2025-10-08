@@ -1,3 +1,22 @@
 baseURL = "https://johnjim0816.github.io/" 
 title = "My Hugo Blog"
 theme = 'ananke'
+defaultContentLanguage = "zh"
+defaultContentLanguageInSubdir = true  # 默认语言也走子路径就设为 true；想让中文在根 / 则设为 false
+enableRobotsTXT = true
+
+[languages.zh]
+    languageName = "中文"
+    weight = 1
+    title = "我的技术博客"
+[languages.en]
+  languageName = "English"
+  weight = 2
+  title = "My Tech Blog"
+
+[permalinks]
+  rl    = "/rl/:sections/:slug/"
+  chore = "/chore/:slug/"
+
+[params]
+  mainSections = ["rl", "chore", "posts"]  # 让主题首页也列出这些 section
