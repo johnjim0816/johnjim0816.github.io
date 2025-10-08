@@ -1,0 +1,7 @@
+# i18n/zh.yaml
+- id: read_more         # 如果主题用这个
+  translation: "阅读全文"
+- id: readMore          # 有些主题用这个驼峰写法
+  translation: "阅读全文"
+- id: continue_reading  # 备用：有些主题用这个
+  translation: "阅读全文"
