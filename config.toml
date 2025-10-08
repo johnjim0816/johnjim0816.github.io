@@ -1,5 +1,0 @@
-baseURL = 'http://example.org/'
-publishDir = "docs"
-languageCode = 'en-us'
-title = 'My New Hugo Site'
-theme = "ananke"
