@@ -39,3 +39,26 @@ enableRobotsTXT = true
 [markup.goldmark.renderer]
   unsafe = true 
 ```
+
+## 切换主题
+
+以`ananke`切换到`PaperMod`为例，首先拉取`submodule`：
+
+```bash
+git submodule add https://github.com/adityatelange/hugo-PaperMod themes/PaperMod
+```
+
+然后更改`hugo.toml`中相关配置:
+
+```toml
+theme = "PaperMod"
+```
+
+删除`ananke`：
+
+```bash
+git submodule deinit -f themes/ananke
+git rm -f themes/ananke
+rm -rf .git/modules/themes/ananke
+git commit -m "chore: remove ananke theme submodule"
+```
