@@ -5,6 +5,9 @@ defaultContentLanguage = "zh"
 defaultContentLanguageInSubdir = true  # 默认语言也走子路径就设为 true；想让中文在根 / 则设为 false
 enableRobotsTXT = true
 
+[markup.goldmark.renderer]
+  unsafe = true 
+
 [languages.zh]
     languageName = "中文"
     weight = 1

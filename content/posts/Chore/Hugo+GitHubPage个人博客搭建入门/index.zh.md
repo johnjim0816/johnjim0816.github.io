@@ -1,7 +1,7 @@
 +++
 date = '2025-10-08T16:51:22+08:00'
 draft = false
-title = 'Hugo+Github Pages搭建教程'
+title = 'Hugo+GitHubPage个人博客搭建入门'
 +++
 
 ## 1. 安装Hugo
@@ -10,8 +10,8 @@ title = 'Hugo+Github Pages搭建教程'
 
 ## 2、初步体验Hugo
 
-首先生成一个本地文档，
-%%  %%
+首先生成一个本地文档
+
 ```bash
 hugo new site personal-site
 ```
@@ -74,6 +74,7 @@ vim .git/config 删除子模块相关
 ## 4、发布到Github Pages上
 
 参考[这个链接](https://zhuanlan.zhihu.com/p/37752930)，我选择了本地文档和网页文档放在一块（尝试过分开，但太痛苦了，不熟悉Git的话会有很多莫明的bug），在```config.toml```中增加一行```publishDir = "docs"```(不加这个网页文档就会生成到public文件夹下，然而没办法指定public文件夹为Pages的source)，这样生成的网页文档就会在docs文件夹下，然后在网页上指定一下Pages的source就可以了，如下图：
+
 <img src="figs/image-20220808171219912.png" alt="示例图" width="700">
 
 
@@ -81,8 +82,8 @@ vim .git/config 删除子模块相关
 
 买一个域名，添加三个解析记录，如下，其中上面两个记录值就是```ping johnjim0816.github.io```得到的ip地址。
 
-![image-20220808172504863](image-20220808172504863.png)
+![image-20220808172504863](figs/image-20220808172504863.png)
 
 然后直接在github repo的pages页面添加你自定义的域名保存，等到DNS check成功即可：
 
-![image-20220808172648749](image-20220808172648749.png)
+![image-20220808172648749](figs/image-20220808172648749.png)
