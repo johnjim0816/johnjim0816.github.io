@@ -27,3 +27,22 @@ hasCJKLanguage = true       # 中文/日文/韩文站点建议打开
 
 [params]
   mainSections = ["rl", "chore", "posts"]  # 让主题首页也列出这些 section
+
+[outputs]
+  home = ["HTML","RSS","JSON"]
+  
+[languages.zh.menu]
+  [[languages.zh.menu.main]]
+    identifier = "search"
+    name = "搜索"
+    url = "/search/"
+    weight = 10
+    pre = "🔍"
+
+[languages.en.menu]
+  [[languages.en.menu.main]]
+    identifier = "search"
+    name = "Search"
+    url = "/search/"      # 大多数主题会做语言相对链接
+    weight = 10
+    pre = "🔎"

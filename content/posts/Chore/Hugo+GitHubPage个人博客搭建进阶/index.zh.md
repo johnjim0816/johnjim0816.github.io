@@ -33,6 +33,8 @@ enableRobotsTXT = true
 
 对应文章文件夹下新建figs文件，md中使用`![fig1](figs/fig1.png)`类似的格式引用即可
 
+注意，所有的文件名必须是index.xx.md(xx表示语言)，否则功能失效
+
 若需要使用`<img src="figs/fig1.png" alt="示例图" width="700">`这样的HTML格式，则需要在`hugo.toml`中增加以下内容
 
 ```toml
@@ -61,4 +63,31 @@ git submodule deinit -f themes/ananke
 git rm -f themes/ananke
 rm -rf .git/modules/themes/ananke
 git commit -m "chore: remove ananke theme submodule"
+```
+
+## 搜索导航栏
+
+`content`目录下增加`search.xx.md`，参考本`Repo`
+
+`hugo.toml`配置中增加以下内容
+
+```toml
+[outputs]
+  home = ["HTML","RSS","JSON"]
+  
+[languages.zh.menu]
+  [[languages.zh.menu.main]]
+    identifier = "search"
+    name = "搜索"
+    url = "/search/"
+    weight = 10
+    pre = "🔍"
+
+[languages.en.menu]
+  [[languages.en.menu.main]]
+    identifier = "search"
+    name = "Search"
+    url = "/search/"      # 大多数主题会做语言相对链接
+    weight = 10
+    pre = "🔎"
 ```
