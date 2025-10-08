@@ -4,6 +4,8 @@ draft = false
 title = 'Hugo+GitHubPage个人博客搭建进阶'
 +++
 
+<!--more-->
+
 ## 多语言
 
 `hugo.toml`配置中增加以下内容， 注意`defaultContentLanguage = "zh"`内容最好放在前面，否则可能不生效

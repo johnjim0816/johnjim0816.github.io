@@ -3,6 +3,7 @@ date = '2025-10-08T16:51:22+08:00'
 draft = false
 title = 'Hugo+GitHubPage个人博客搭建入门'
 +++
+<!--more-->
 
 ## 1. 安装Hugo
 

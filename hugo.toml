@@ -6,6 +6,9 @@ defaultContentLanguage = "zh"
 defaultContentLanguageInSubdir = true  # 默认语言也走子路径就设为 true；想让中文在根 / 则设为 false
 enableRobotsTXT = true
 
+summaryLength = 40          # 默认 70（按单词或 CJK 字符统计）
+hasCJKLanguage = true       # 中文/日文/韩文站点建议打开
+
 [languages.zh]
     languageName = "中文"
     weight = 1
@@ -14,7 +17,7 @@ enableRobotsTXT = true
   languageName = "English"
   weight = 2
   title = "My Tech Blog"
-  
+
 
 [markup.goldmark.renderer]
   unsafe = true 
