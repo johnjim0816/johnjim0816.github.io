@@ -1,12 +1,10 @@
 baseURL = "https://johnjim0816.github.io/" 
 title = "My Hugo Blog"
 theme = 'ananke'
+
 defaultContentLanguage = "zh"
 defaultContentLanguageInSubdir = true  # 默认语言也走子路径就设为 true；想让中文在根 / 则设为 false
 enableRobotsTXT = true
-
-[markup.goldmark.renderer]
-  unsafe = true 
 
 [languages.zh]
     languageName = "中文"
@@ -16,6 +14,12 @@ enableRobotsTXT = true
   languageName = "English"
   weight = 2
   title = "My Tech Blog"
+  
+
+[markup.goldmark.renderer]
+  unsafe = true 
+
+
 
 [permalinks]
   rl    = "/rl/:sections/:slug/"
