@@ -1,0 +1,60 @@
+name: Deploy Hugo site to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]    # 如果你的默认分支不是 main，这里改成你的分支名
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: true      # 如果主题用 submodule，这个必须是 true
+          fetch-depth: 0
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.151.0'   # 换成你本地确认可用的稳定版本
+          extended: true
+
+      # 如果你有 Tailwind/PostCSS/ESBuild 等前端步骤，取消注释以下两步
+      # - name: Setup Node
+      #   uses: actions/setup-node@v4
+      #   with:
+      #     node-version: 20
+      # - name: Build frontend assets
+      #   run: npm ci && npm run build
+
+      - name: Build
+        env:
+          HUGO_ENV: production
+        run: hugo --gc --minify
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
