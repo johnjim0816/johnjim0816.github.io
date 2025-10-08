@@ -1,6 +1,6 @@
 baseURL = "https://johnjim0816.github.io/" 
 title = "My Hugo Blog"
-theme = 'ananke'
+theme = 'PaperMod'
 
 defaultContentLanguage = "zh"
 defaultContentLanguageInSubdir = true  # 默认语言也走子路径就设为 true；想让中文在根 / 则设为 false
@@ -18,11 +18,8 @@ hasCJKLanguage = true       # 中文/日文/韩文站点建议打开
   weight = 2
   title = "My Tech Blog"
 
-
 [markup.goldmark.renderer]
   unsafe = true 
-
-
 
 [permalinks]
   rl    = "/rl/:sections/:slug/"
