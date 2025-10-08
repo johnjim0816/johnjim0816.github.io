@@ -1,1 +1,19 @@
+# Hugo build artifacts
+/public/
+/resources/
+/.hugo_build.lock
+
+# CSS/JS toolchains (if used)
+node_modules/
+.pnp.*
+*.log
+
+# OS / Editor
 .DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Optional: if you generate hugo_stats.json at build time, ignore it
+# (若你的 PostCSS/PurgeCSS 依赖它，且需要稳定复用，可选择提交)
+hugo_stats.json
