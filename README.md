@@ -1,2 +1,3 @@
-# johnjim0816.github.io
+# JJ's Blog
+
 My personal blogs based on Hugo
