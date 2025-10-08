@@ -12,11 +12,11 @@ hasCJKLanguage = true       # 中文/日文/韩文站点建议打开
 [languages.zh]
     languageName = "中文"
     weight = 1
-    title = "我的技术博客"
+    title = "JJ's Blog"
 [languages.en]
   languageName = "English"
   weight = 2
-  title = "My Tech Blog"
+  title = "JJ's Blog"
 
 [markup.goldmark.renderer]
   unsafe = true 

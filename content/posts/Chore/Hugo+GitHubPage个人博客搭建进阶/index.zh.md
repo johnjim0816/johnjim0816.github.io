@@ -33,7 +33,7 @@ enableRobotsTXT = true
 
 对应文章文件夹下新建figs文件，md中使用`![fig1](figs/fig1.png)`类似的格式引用即可
 
-若需要使用`<img src="figs/image-20220808171219912.png" alt="示例图" width="700">`这样的HTML格式，则需要在`hugo.toml`中增加以下内容
+若需要使用`<img src="figs/fig1.png" alt="示例图" width="700">`这样的HTML格式，则需要在`hugo.toml`中增加以下内容
 
 ```toml
 [markup.goldmark.renderer]
