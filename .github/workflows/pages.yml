@@ -2,7 +2,7 @@ name: Deploy Hugo site to GitHub Pages
 
 on:
   push:
-    branches: [ main ]    # 如果你的默认分支不是 main，这里改成你的分支名
+    branches: [ master ]    # 如果你的默认分支不是 main，这里改成你的分支名
   workflow_dispatch:
 
 permissions:
