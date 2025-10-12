@@ -10,12 +10,6 @@ title = 'Policy Gradient 算法'
 
 回顾状态价值相关部分，我们知道“最大化长期回报”这条主线贯穿绝大多数强化学习问题，通常用 $J(\pi)$ 表示，如式 $\text{(1)}$ 。
 
-```python
-import sys
-
-a =
-```
-
 $$
 \tag{1}
 J(\pi)=\mathbb{E}_{s_{0} \sim \rho_{0}} \left[V^{\pi}\left(s_{0}\right)\right]
