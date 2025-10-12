@@ -17,9 +17,17 @@ hasCJKLanguage = true       # 中文/日文/韩文站点建议打开
   languageName = "English"
   weight = 2
   title = "JJ's Blog"
-
-[markup.goldmark.renderer]
-  unsafe = true 
+  
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.passthrough]
+        enable = true
+        [markup.goldmark.extensions.passthrough.delimiters]
+          block = [['\[', '\]'], ['$$', '$$']]
+          inline = [['\(', '\)'],['$', '$']]
 
 [permalinks]
   rl    = "/rl/:sections/:slug/"
@@ -27,6 +35,8 @@ hasCJKLanguage = true       # 中文/日文/韩文站点建议打开
 
 [params]
   mainSections = ["rl", "chore", "posts"]  # 让主题首页也列出这些 section
+  math = true
+
 
 [outputs]
   home = ["HTML","RSS","JSON"]
