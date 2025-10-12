@@ -1,0 +1,140 @@
+/* ========== 🧭 全局布局优化 ========== */
+body {
+  background-color: #f5f7fa;  /* 整体柔和浅灰蓝底色 */
+  color: #222;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.7;
+}
+
+/* 让正文更宽，阅读舒适 */
+.single .content {
+  max-width: 850px;
+  background-color: #ffffff;
+  margin: 2rem auto;
+  padding: 2.5rem 3rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  transition: background 0.3s ease;
+}
+
+/* ========== 📚 标题层次优化 ========== */
+.single .content h1, 
+.single .content h2, 
+.single .content h3, 
+.single .content h4 {
+  color: #111827;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* 给标题一点视觉层次 */
+.single .content h2 {
+  border-left: 4px solid #2563eb; /* 蓝色竖线 */
+  padding-left: 0.5rem;
+}
+
+/* ========== 🧱 段落与图片 ========== */
+.single .content p {
+  margin-bottom: 1.2rem;
+}
+
+.single .content img {
+  display: block;
+  margin: 1.5rem auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  max-width: 100%;
+}
+
+/* ========== 💡 代码块优化 ========== */
+.single .content pre {
+  background: #1e293b;        /* 深灰蓝 */
+  color: #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem;
+  overflow-x: auto;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.single .content code {
+  background: rgba(0,0,0,0.05);
+  color: #e11d48;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.95em;
+}
+
+/* ========== 🔗 链接与高亮 ========== */
+.single .content a {
+  color: #2563eb;
+  text-decoration: none;
+  border-bottom: 1px dotted #93c5fd;
+}
+.single .content a:hover {
+  color: #1e40af;
+  border-bottom: 1px solid #2563eb;
+}
+
+/* ========== 📑 目录 (ToC) 美化 ========== */
+.toc {
+  position: fixed;
+  right: 2rem;
+  top: 6rem;
+  max-width: 250px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+
+/* ========== 🌙 暗色模式 ========== */
+.dark body {
+  background-color: #0f172a;
+  color: #e2e8f0;
+}
+
+.dark .single .content {
+  background-color: #1e293b;
+  box-shadow: none;
+}
+
+.dark .single .content pre {
+  background: #0f172a;
+}
+
+.dark .toc {
+  background-color: #1e293b;
+  box-shadow: none;
+}
+
+/* 包裹层 */
+.code-wrapper {
+  position: relative;
+}
+
+/* 复制按钮 */
+.copy-code-button {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background-color: #2563eb; /* 蓝色按钮 */
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s, background 0.3s;
+}
+
+.copy-code-button:hover {
+  opacity: 1;
+  background-color: #1e40af;
+}
+
+.copy-code-button:active {
+  transform: scale(0.95);
+}
