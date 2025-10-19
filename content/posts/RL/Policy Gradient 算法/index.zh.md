@@ -7,11 +7,9 @@ title = 'Policy Gradient 算法'
 
 <!--more-->
 
-第一节写的有问题，基于价值的目标函数是逼近bellman，基于策略的才是每个状态出现的概率和对应的价值
-
 ## 基础概念
 
-一些帮助理解文章的关键符号说明，见表 1 。
+一些帮助理解文章的关键符号或名词说明，见表 1 。
 
 <div style="text-align: center;">
     <figcaption style="font-size: 14px;"> <b>表 1 符号说明</b> </figcaption>
@@ -22,6 +20,7 @@ title = 'Policy Gradient 算法'
 | $S_t,A_t,R_t$ | 强调一段轨迹中第 $t$ 步的状态、动作、奖励，有时也写作$s_t,a_t,r_t$，大写更强调随机变量 |
 | $Pr$ | 某个事件的概率，以区分与状态转移矩阵 $P$ |
 | $G_t$ | 回报（ $\text{Return}$ ），指从时间步 $t$ 开始的未来（折扣）奖励和 |
+| $\text{rollout}$ | 从某个初始状态出发，根据当前策略与环境交互，采样出一整条轨迹的过程。 |
 
 
 ## 策略参数化
@@ -230,7 +229,9 @@ J(\pi_\theta)=\int_{s_{0}} \rho_{0}\left(s_{0}\right) \sum_{a} \pi_\theta(a|s_0)
 \end{equation}
 $$
 
-乍看初始状态分布 $\rho_0$ 似乎与策略参数 $\theta$ 无关，因此在计算梯度 $\nabla_\theta J(\pi_\theta)$ 时可以将其视为常数项直接提到积分号外面。然而，实际上初始状态分布 $\rho_0$ 会影响智能体后续的状态访问分布（ $\text{state visitation distribution}$ ），进而影响目标函数 $J(\pi_\theta)$ 的值。因此，在计算梯度 $\nabla_\theta J(\pi_\theta)$ 时，不能简单地将初始状态分布 $\rho_0$ 视为常数项。为此，需要引入 **平稳分布**（ $\text{stationary distribution}$ ） 的概念来更好地理解状态访问分布与策略参数 $\theta$ 之间的关系。
+乍看初始状态分布 $\rho_0$ 似乎与策略参数 $\theta$ 无关，因此在计算梯度 $\nabla_\theta J(\pi_\theta)$ 时可以将其视为常数项直接提到积分号外面。然而，实际上初始状态分布 $\rho_0$ 会影响智能体后续的状态访问分布（ $\text{state visitation distribution}$ ），进而影响目标函数 $J(\pi_\theta)$ 的值。
+
+因此，在计算梯度 $\nabla_\theta J(\pi_\theta)$ 时，不能简单地将初始状态分布 $\rho_0$ 视为常数项。为此，需要引入 **平稳分布**（ $\text{stationary distribution}$ ） 的概念来更好地理解状态访问分布与策略参数 $\theta$ 之间的关系。
 
 ### 平稳分布
 
@@ -241,18 +242,24 @@ $$
 <figcaption>图 2 马尔可夫过程示例</figcaption>
 </div>
 
-从图中可以该马尔可夫过程的状态转移矩阵 $P$ 如式 $\text{(21)}$ 所示。
+从图中可以该马尔可夫过程的状态转移矩阵 $P$ 如式 $\eqref{eq:21}$ 所示。
+
 $$
-\tag{21}
+\begin{equation}
+\label{eq:21}
 P=\left[\begin{array}{lll}
 0.5 & 0.4 & 0.1 \\
 0.2 & 0.6 & 0.2 \\
 0.05 & 0.45 & 0.5
 \end{array}\right]
+\end{equation}
 $$
-设初始状态分布为 $\rho_0 = [0.15,0.62,0.23]$ ，表示初始时刻状态 $s_1$ 的概率为 $0.15$ ，状态 $s_2$ 的概率为 $0.62$ ，状态 $s_3$ 的概率为 $0.23$ 。那么经过一步状态转移或者说一次状态迭代后，新的状态分布 $\rho_1$ 可通过初始状态分布 $\rho_0$ 与状态转移矩阵 $P$ 相乘得到，如式 $\text{(22)}$ 所示。
+
+设初始状态分布为 $\rho_0 = [0.15,0.62,0.23]$ ，表示初始时刻状态 $s_1$ 的概率为 $0.15$ ，状态 $s_2$ 的概率为 $0.62$ ，状态 $s_3$ 的概率为 $0.23$ 。那么经过一步状态转移或者说一次状态迭代后，新的状态分布 $\rho_1$ 可通过初始状态分布 $\rho_0$ 与状态转移矩阵 $P$ 相乘得到，如式 $\eqref{eq:22}$ 所示。
+
 $$
-\tag{22}
+\begin{equation}
+\label{eq:22}
 \begin{aligned}
 \rho_1 = \rho_0 P &= [0.15,0.62,0.23] \left[\begin{array}{lll}
 0.5 & 0.4 & 0.1 \\
@@ -261,10 +268,14 @@ $$
 \end{array}\right] \\
 &= [0.21, 0.536, 0.254]
 \end{aligned}
+\end{equation}
 $$
-同理，经过两次状态转移或者说两次状态迭代后，新的状态分布 $\rho_2$ 可通过 $\rho_1$ 与状态转移矩阵 $P$ 相乘得到，如式 $\text{(23)}$ 所示。
+
+同理，经过两次状态转移或者说两次状态迭代后，新的状态分布 $\rho_2$ 可通过 $\rho_1$ 与状态转移矩阵 $P$ 相乘得到，如式 $\eqref{eq:23}$ 所示。
+
 $$
-\tag{23}
+\begin{equation}
+\label{eq:23}
 \begin{aligned}
 \rho_2 = \rho_1 P &= [0.21, 0.536, 0.254] \left[\begin{array}{lll}
 0.5 &
@@ -274,12 +285,15 @@ $$
 \end{array}\right] \\
 &= [0.225, 0.52, 0.255]
 \end{aligned}
+\end{equation}
 $$
+
 那么经过多次状态转移或者说多次状态迭代后，状态分布会发生什么变化呢？我们可以通过编程来模拟一下，如代码 1 所示。
 
 <div style="text-align: center;">
     <figcaption style="font-size: 14px;"> <b>代码 1 状态分布迭代模拟</b> </figcaption>
 </div>
+
 ```python
 import numpy as np
 pi_0 = np.array([[0.15,0.62,0.23]])
@@ -294,6 +308,7 @@ for i in range(1,10+1):
 <div style="text-align: center;">
     <figcaption style="font-size: 14px;"> <b>代码 2 状态分布迭代结果1</b> </figcaption>
 </div>
+
 ```python
 第1次迭代后状态分布为：[[0.21  0.536 0.254]]
 第2次迭代后状态分布为：[[0.225 0.52  0.255]]
@@ -312,6 +327,7 @@ for i in range(1,10+1):
 <div style="text-align: center;">
     <figcaption style="font-size: 14px;">  <b>代码 3 状态分布迭代结果1 </b> </figcaption>
 </div>
+
 ```python
 第1次迭代后状态分布为：[[0.462 0.413 0.125]]
 第2次迭代后状态分布为：[[0.32  0.489 0.191]]
@@ -325,22 +341,28 @@ for i in range(1,10+1):
 第10次迭代后状态分布为：[[0.232 0.516 0.253]]
 ```
 
-也就是说，无论初始状态分布如何变化，经过多次迭代后，状态分布最终都会收敛到同一个固定的分布 $\rho = [0.232, 0.516, 0.253]$ 。 这个固定的分布就称为 **平稳分布**（ $\text{stationary distribution}$ ），通常用  $d^{\pi}(s)$ 表示，表示在策略 $\pi$ 指导下，从任意初始状态 $s_0$ 开始，经过足够长时间后，系统处于状态 $s$ 的概率，如式 $\text{(24)}$ 所示。
+也就是说，无论初始状态分布如何变化，经过多次迭代后，状态分布最终都会收敛到同一个固定的分布 $\rho = [0.232, 0.516, 0.253]$ 。 这个固定的分布就称为 **平稳分布**（ $\text{stationary distribution}$ ），通常用  $d^{\pi}(s)$ 表示，表示在策略 $\pi$ 指导下，从任意初始状态 $s_0$ 开始，经过足够长时间后，系统处于状态 $s$ 的概率，如式 $\eqref{eq:24}$ 所示。
 
 $$
-\tag{24}
+\begin{equation}
+\label{eq:24}
 d^\pi(s)=\lim _{t \rightarrow \infty} Pr\left(s_t=s \mid s_0, \pi_\theta\right)
+\end{equation}
 $$
 
 简单来说，它描述了系统在长期运行后，处于各状态的概率分布。需要注意的是，平稳分布的存在是有前提条件的，必须是遍历（ $\text{ergodic}$ ）的马尔可夫过程，遍历包含两个性质：不可约（ $\text{irreducible}$ ）和非周期（ $\text{aperiodic}$ ）。不可约表示从任意状态出发，都有可能到达其他任意状态，有时也叫作连通性（ $\text{communicative}$ ）；非周期表示系统不会陷入某种固定的循环模式。而通常情况下，**强化学习中的马尔可夫过程都是遍历的，因此平稳分布是存在的**。
 
 ### 平稳分布的存在性推导
 
-本节内容主要从数学上来推导说明为什么平稳分布是存在的，换句话说为什么马尔可夫过程在长期运行后会收敛到一个固定的分布，即“不动点”， 如式 $\text{(25)}$ 所示。
+本节内容主要从数学上来推导说明为什么平稳分布是存在的，换句话说为什么马尔可夫过程在长期运行后会收敛到一个固定的分布，即“不动点”， 如式 $\eqref{eq:25}$ 所示。
+
 $$
-\tag{25}
+\begin{equation}
+\label{eq:25}
 d_{t+1}^\pi(s) = \sum_{s'} d_t^\pi(s') P(s|s', \pi_\theta), \text{且当} d_t^\pi(s) = d^{\star}(s) \text{时，} d_{t+1}^\pi(s) = d^{\star}(s) 
+\end{equation}
 $$
+
 用矩阵的语言来表示，就是转移算子 $P$ 存在一个不动点，如式 $\eqref{eq:26}$ 所示。
 
 $$
@@ -582,8 +604,9 @@ y_a (1 - y_a), & \text{if } a' = a \\
 \end{equation}
 $$
 
-注意到，由于使用了指数函数，如果某个动作的得分 $z_i$ 较高，对应的 $\exp(z_i)$ 就会成倍增加，换句话说，这会让策略更倾向于“高分动作”。然而，如果得分 $z$ 过大，可能会导致指数函数的输出超出计算机的表示范围，从而导致数值不稳定的问题。为了解决这个问题，通常会在计算 $\text{Softmax}$ 函数时，对所有的得分 $z$ 减去一个常数 $\max(z)$ ，这样可以避免指数函数的输入过大，同时不会改变概率分布的相对关系，如式 $\eqref{eq:softmax_stable}$ 所示。
+注意到，由于使用了指数函数，如果某个动作的得分 $z_i$ 较高，对应的 $\exp(z_i)$ 就会成倍增加，换句话说，这会让策略更倾向于“高分动作”。然而，如果得分 $z$ 过大，可能会导致指数函数的输出超出计算机的表示范围，从而导致数值不稳定的问题。
 
+为了解决这个问题，通常会在计算 $\text{Softmax}$ 函数时，对所有的得分 $z$ 减去一个常数 $\max(z)$ ，这样可以避免指数函数的输入过大，同时不会改变概率分布的相对关系，如式 $\eqref{eq:softmax_stable}$ 所示。
 $$
 \begin{equation}\label{eq:softmax_stable}
 \pi_\theta(a|s) = \frac{\exp(f_\theta(s,a) - \max_{a'} f_\theta(s,a'))}{\sum_{a'} \exp(f_\theta(s,a') - \max_{a''} f_\theta(s,a''))}
@@ -934,6 +957,13 @@ $$
 \end{equation}
 $$
 
+在实际应用中，$\text{REINFORCE}$ 算法的流程如图 3 所示。首先，初始化策略参数 $\theta$ ，然后在每个迭代周期中，采样 $N$ 条轨迹 $\{\tau^{(i)}\}_{i=1}^{N}$ （这个过程称为 $\text{rollout}$，出于简便图中只展示了一条轨迹的采样 ），计算每条轨迹的回报 $G_t^{(i)}$ ，最后根据式 $\eqref{eq:41}$ 计算梯度并更新策略参数 $\theta$ 。
+
+<div align=center>
+<img width="800" src="figs/pseu.png"/>
+<figcaption style="font-size: 14px;">图 3 REINFORCE 算法流程</figcaption>
+</div>
+
 
 ## 小结
 
@@ -955,3 +985,8 @@ REINFORCE 算法是无偏的，因为它使用了蒙特卡洛方法来估计策�
 
 可以通过以下几种方法来改进 REINFORCE 算法以提高样本效率: 1) 使用基线函数来减少梯度估计的方差；2) 采用时间差分（TD）方法来替代蒙特卡洛估计，从而减少对完整轨迹的依赖；3) 使用经验回放（Experience Replay）技术来重用过去的经验数据；4) 结合价值函数近似方法，如 Actor-Critic 方法，以同时学习策略和价值函数。基本思想是通过参数化策略，并利用梯度上升法来优化策略参数，从而最大化预期回报。核心思想是通过参数化策略，并利用梯度上升法来优化策略参数，从而最大化预期回报。
 
+**确定性策略与随机性策略的区别？**
+
+**马尔可夫平稳分布需要满足什么条件？**
+
+**$\text{REINFORCE}$ 算法会比 $\text{Q-learning}$ 算法训练速度更快吗？为什么？**
