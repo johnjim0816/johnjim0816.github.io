@@ -5,11 +5,11 @@ title = 'Hugo+GitHubPage个人博客搭建入门'
 +++
 <!--more-->
 
-## 1. 安装Hugo
+## 安装依赖
 
 参考[Hugo官网安装教程](https://gohugo.io/getting-started/installing/)，注意安装Hugo之前需安装Go和Git
 
-## 2、初步体验Hugo
+## 本地部署
 
 首先生成一个本地文档
 
@@ -48,7 +48,7 @@ hugo server
 
 如果没有问题，执行```hugo```命令就会生成网页在public子目录中。
 
-## 3、添加主题
+## 添加主题
 
 添加主题可以使用git submodule的形式如下：
 
@@ -72,14 +72,87 @@ vim .git/config 删除子模块相关
 
 
 
-## 4、发布到Github Pages上
+## 网页部署
+
+
+
+### Github Pages
 
 参考[这个链接](https://zhuanlan.zhihu.com/p/37752930)，我选择了本地文档和网页文档放在一块（尝试过分开，但太痛苦了，不熟悉Git的话会有很多莫明的bug），在```config.toml```中增加一行```publishDir = "docs"```(不加这个网页文档就会生成到public文件夹下，然而没办法指定public文件夹为Pages的source)，这样生成的网页文档就会在docs文件夹下，然后在网页上指定一下Pages的source就可以了，如下图：
 
 <img src="figs/image-20220808171219912.png" alt="示例图" width="700">
 
+### GitHub Actions自动部署
 
-## 5、自定义域名
+参考[这个链接](https://gohugo.io/hosting-and-deployment/hosting-on-github/)，仓库下新建一个```.github/workflows/pages.yml ```文件，内容如下：
+
+```yaml
+name: Deploy Hugo site to GitHub Pages
+
+on:
+  push:
+    branches: [ master ]    # 如果你的默认分支不是 main，这里改成你的分支名
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: true      # 如果主题用 submodule，这个必须是 true
+          fetch-depth: 0
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.151.0'   # 换成你本地确认可用的稳定版本
+          extended: true
+
+      # 如果你有 Tailwind/PostCSS/ESBuild 等前端步骤，取消注释以下两步
+      # - name: Setup Node
+      #   uses: actions/setup-node@v4
+      #   with:
+      #     node-version: 20
+      # - name: Build frontend assets
+      #   run: npm ci && npm run build
+
+      - name: Build
+        env:
+          HUGO_ENV: production
+        run: hugo --gc --minify
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+```
+
+然后push到github上即可。
+
+
+## 自定义域名
 
 买一个域名，添加三个解析记录，如下，其中上面两个记录值就是```ping johnjim0816.github.io```得到的ip地址。
 
